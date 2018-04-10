@@ -15,6 +15,7 @@ import { UserTabs } from '../pages/users/user-tabs';
 import { UserForm } from '../pages/users/user-form';
 import { RegisterPage } from '../pages/users/register';
 import {FitnessTests} from '../pages/fitness-tests/fitness-tests'
+import {Workouts} from '../pages/workouts/workouts';
 import { Login } from '../pages/login/login';
 import { AboutPage } from '../pages/static/about';
 import { HelpPage } from '../pages/static/help';
@@ -187,6 +188,7 @@ export class MyApp {
           } else if (this.currentUser.role != "Admin") {
             this.pages = [
               { title: 'Tests', component: FitnessTests, params: {} },
+              { title: 'Workouts', component: Workouts, params: {} },
               { title: 'About Us', component: AboutPage, params: {} },
               { title: 'Terms & Conditions', component: TermsPage, params: {} },
               { title: 'Contact Us', component: ContactPage, params: {} },
