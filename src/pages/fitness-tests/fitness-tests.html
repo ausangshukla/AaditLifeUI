@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tests</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-list>
+
+  <button ion-item *ngFor="let fitness_test of fitness_tests" (click)=getFitnessTestDetails(fitness_test)>
+    
+    {{fitness_test.test_date | date}} 
+    <p>
+      Weight: {{fitness_test.weight}}
+    </p>
+    <p>
+      Fat %: {{fitness_test.fat_percentage}}
+    </p>
+     <p> 
+      Body Age: {{fitness_test.body_age}}
+    </p>
+  </button>
+
+  </ion-list>
+
+</ion-content>

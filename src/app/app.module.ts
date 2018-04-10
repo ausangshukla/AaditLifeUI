@@ -28,6 +28,9 @@ import { UserDetails } from '../pages/users/user-details';
 import { PhoneVerificationPage } from '../pages/users/phone-verification';
 import { RegisterPage } from '../pages/users/register';
 
+import { FitnessTests } from '../pages/fitness-tests/fitness-tests';
+import { FitnessTestDetails } from '../pages/fitness-tests/fitness-test-details';
+
 
 import { AboutPage } from '../pages/static/about';
 import { HelpPage } from '../pages/static/help';
@@ -40,6 +43,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { MomentModule } from 'angular2-moment';
 import { UserApi } from '../providers/user-api'
+import { FitnessTestApi } from '../providers/fitness-test-api'
 import { Config } from '../providers/config'
 
 import { ResponseUtility } from '../providers/response-utility'
@@ -61,6 +65,8 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     UserTabs,
     UserForm,
     UserDetails,
+    FitnessTests,
+    FitnessTestDetails,
     PhoneVerificationPage,
     RegisterPage,
     TitleCasePipe,
@@ -91,6 +97,8 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     UserDetails,
     PhoneVerificationPage,
     RegisterPage,
+    FitnessTests,
+    FitnessTestDetails,
     AboutPage,
     HelpPage,
     ContactPage,
@@ -104,6 +112,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     Config,
     LoginProvider,
     UserApi,
+    FitnessTestApi,
     ResponseUtility,
     StatusBar,
     SplashScreen,

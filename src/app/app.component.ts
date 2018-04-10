@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { Users } from '../pages/users/users';
-import { UserPic } from '../pages/user-pic/user-pic';
 import { Angular2TokenService } from 'angular2-token';
 import { Config } from '../providers/config';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
@@ -15,7 +14,7 @@ import { ResponseUtility } from '../providers/response-utility';
 import { UserTabs } from '../pages/users/user-tabs';
 import { UserForm } from '../pages/users/user-form';
 import { RegisterPage } from '../pages/users/register';
-
+import {FitnessTests} from '../pages/fitness-tests/fitness-tests'
 import { Login } from '../pages/login/login';
 import { AboutPage } from '../pages/static/about';
 import { HelpPage } from '../pages/static/help';
@@ -174,11 +173,10 @@ export class MyApp {
 
           this.ga.setUserId(this.currentUser["id"]); // Set the user ID using signed-in user_id.
 
-          if (this.currentUser.role == "Admin" &&
-            this.currentUser.care_home != null &&
-            this.currentUser.care_home.verified == true) {
+          if (this.currentUser.role == "Admin") {
 
             this.pages = [
+              { title: 'Tests', component: FitnessTests, params: {} },
               { title: 'About Us', component: AboutPage, params: {} },
               { title: 'Terms & Conditions', component: TermsPage, params: {} },
               { title: 'Contact Us', component: ContactPage, params: {} },
@@ -186,8 +184,9 @@ export class MyApp {
 
             ];
 
-          } else if (this.currentUser.role != "Admin" && this.currentUser.verified) {
+          } else if (this.currentUser.role != "Admin") {
             this.pages = [
+              { title: 'Tests', component: FitnessTests, params: {} },
               { title: 'About Us', component: AboutPage, params: {} },
               { title: 'Terms & Conditions', component: TermsPage, params: {} },
               { title: 'Contact Us', component: ContactPage, params: {} },
