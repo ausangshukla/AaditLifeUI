@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Tests</ion-title>
+    <ion-title>Workouts</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,7 +13,7 @@
 
     <button ion-item *ngFor="let workout of workouts" (click)=getWorkoutDetails(workout)>
 
-      <ion-item-divider text-center color="secondary">{{workout.workout_type}}</ion-item-divider>
+        <ion-item-divider text-center color="secondary">{{workout.workout_type}}</ion-item-divider>
         <ion-item>
           <ion-row>
             <ion-col text-wrap>

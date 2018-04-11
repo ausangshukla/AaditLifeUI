@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
@@ -9,22 +8,27 @@
 
 
 <ion-content padding>
-  
+
   <ion-list>
 
-  <button ion-item *ngFor="let fitness_test of fitness_tests" (click)=getFitnessTestDetails(fitness_test)>
-    
-    {{fitness_test.test_date | date}} 
-    <p>
-      Weight: {{fitness_test.weight}}
-    </p>
-    <p>
-      Fat %: {{fitness_test.fat_percentage}}
-    </p>
-     <p> 
-      Body Age: {{fitness_test.body_age}}
-    </p>
-  </button>
+    <button ion-item *ngFor="let fitness_test of fitness_tests" (click)=getFitnessTestDetails(fitness_test)>
+
+      {{fitness_test.test_date | date}}
+      <p>
+        Weight: {{fitness_test.weight}}
+      </p>
+      <p>
+        Fat %: {{fitness_test.fat_percentage}}
+      </p>
+      <p>
+        Body Age: {{fitness_test.body_age}}
+      </p>
+
+        <ion-badge item-right color="secondary" *ngIf="fitness_test.current">
+          Current
+        </ion-badge>
+      
+    </button>
 
   </ion-list>
 
