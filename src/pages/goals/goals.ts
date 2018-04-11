@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ResponseUtility } from '../../providers/response-utility';
-import { GoalDetails } from './goal-details';
+import { GoalForm } from './goal-form';
 import { GoalApi } from '../../providers/goal-api';
 
 @Component({
@@ -17,7 +17,7 @@ export class Goals {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController,
-    public goal_api: GoalApi,
+    public goalApi: GoalApi,
     public respUtility: ResponseUtility) {
   }
 
@@ -30,7 +30,7 @@ export class Goals {
 
     loader.present();
 
-    this.goal_api.getGoals().subscribe(
+    this.goalApi.getGoals().subscribe(
       goals => {
         this.goals = goals;
         console.log("Loaded goals");
@@ -43,11 +43,11 @@ export class Goals {
   }
 
   getGoalDetails(goal) {
-    this.respUtility.trackEvent("Goal", "Details", "click");
-    this.navCtrl.push(GoalDetails, goal);
+    this.respUtility.trackEvent("Goal", "Form", "click");
+    this.navCtrl.push(GoalForm, goal);
   }
 
   getGoalText(name) {
-    return this.goal_api.getGoalText(name);
+    return this.goalApi.getGoalText(name);
   }
 }

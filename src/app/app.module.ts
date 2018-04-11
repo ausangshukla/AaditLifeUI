@@ -34,6 +34,10 @@ import { Workouts } from '../pages/workouts/workouts';
 import { WorkoutDetails } from '../pages/workouts/workout-details';
 import { Goals } from '../pages/goals/goals';
 import { GoalDetails } from '../pages/goals/goal-details';
+import { GoalForm } from '../pages/goals/goal-form';
+import { Medicals } from '../pages/medicals/medicals';
+import { MedicalDetails } from '../pages/medicals/medical-details';
+import { MedicalForm } from '../pages/medicals/medical-form';
 
 
 import { AboutPage } from '../pages/static/about';
@@ -49,6 +53,7 @@ import { MomentModule } from 'angular2-moment';
 import { UserApi } from '../providers/user-api'
 import { WorkoutApi } from '../providers/workout-api'
 import { GoalApi } from '../providers/goal-api'
+import { MedicalApi } from '../providers/medical-api'
 import { FitnessTestApi } from '../providers/fitness-test-api'
 import { Config } from '../providers/config'
 
@@ -77,6 +82,10 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     WorkoutDetails,
     Goals,
     GoalDetails,
+    GoalForm,
+    Medicals,
+    MedicalDetails,
+    MedicalForm,
     PhoneVerificationPage,
     RegisterPage,
     TitleCasePipe,
@@ -113,6 +122,10 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     WorkoutDetails,
     Goals,
     GoalDetails,
+    GoalForm,
+    Medicals,
+    MedicalDetails,
+    MedicalForm,
     AboutPage,
     HelpPage,
     ContactPage,
@@ -129,6 +142,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     FitnessTestApi,
     WorkoutApi,
     GoalApi,
+    MedicalApi,
     ResponseUtility,
     StatusBar,
     SplashScreen,

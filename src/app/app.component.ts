@@ -17,6 +17,7 @@ import { RegisterPage } from '../pages/users/register';
 import {FitnessTests} from '../pages/fitness-tests/fitness-tests'
 import {Workouts} from '../pages/workouts/workouts';
 import {Goals} from '../pages/goals/goals';
+import {Medicals} from '../pages/medicals/medicals';
 import { Login } from '../pages/login/login';
 import { AboutPage } from '../pages/static/about';
 import { HelpPage } from '../pages/static/help';
@@ -189,6 +190,7 @@ export class MyApp {
           } else if (this.currentUser.role != "Admin") {
             this.pages = [
               { title: 'Goals', component: Goals, params: {} },
+              { title: 'Medicals', component: Medicals, params: {} },
               { title: 'Tests', component: FitnessTests, params: {} },
               { title: 'Workouts', component: Workouts, params: {} },
               { title: 'About Us', component: AboutPage, params: {} },
