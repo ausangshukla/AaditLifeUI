@@ -33,6 +33,27 @@ export class MedicalForm {
     private keyboard: Keyboard) {
 
     this.medical = this.navParams.data;
+    if(this.medical == null || this.medical["last_medical_checkup"] == null) {
+      // Grab the medicals for the currently logged in user
+
+      let loader = this.loadingController.create({
+        content: 'Loading Medicals..'
+      });
+  
+      loader.present();
+      
+      let currentUser = this.tokenService.currentUserData;
+      this.medicalApi.getMedicals().subscribe(
+        medicals => {
+          this.medical = medicals[0];
+          console.log("Loaded medicals");
+          console.log(Object.prototype.toString.call(this.medical));
+        },
+        error => { this.respUtility.showFailure(error); loader.dismiss(); },
+        () => { loader.dismiss(); }
+      );
+  
+    }
     console.log(this.medical);  
 
     this.slideOneForm = formBuilder.group({

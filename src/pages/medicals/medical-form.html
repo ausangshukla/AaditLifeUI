@@ -22,14 +22,33 @@
     <form [formGroup]="slideOneForm">
 
 
-      <ion-item>
-        <ion-label text-wrap floating>The last time I had a medical check up was</ion-label>
-        <ion-textarea name="last_medical_checkup" formControlName="last_medical_checkup" type="text" [(ngModel)]="medical.last_medical_checkup" [class.invalid]="!slideOneForm.controls.last_medical_checkup.valid && (slideOneForm.controls.last_medical_checkup.dirty || submitAttempt)"></ion-textarea>
-      </ion-item>
+      <ion-list radio-group formControlName="last_medical_checkup" [(ngModel)]="medical.last_medical_checkup">
+
+        <ion-list-header text-wrap>The last time I had a medical check up was</ion-list-header>
+
+        <ion-item>
+          <ion-label text-wrap>Within the last six months.</ion-label>
+          <ion-radio value="Within the last six months."></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label text-wrap>Between six and eighteen months ago.</ion-label>
+          <ion-radio value="Between six and eighteen months ago."></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label text-wrap>More than eighteen months ago / never.</ion-label>
+          <ion-radio value="More than eighteen months ago / never."></ion-radio>
+        </ion-item>
+
+      </ion-list>
+
 
       <ion-item *ngIf="!slideOneForm.controls.last_medical_checkup.valid  && (slideOneForm.controls.last_medical_checkup.dirty || submitAttempt)">
         <p class="error-text">Please enter some details.</p>
       </ion-item>
+
+      <ion-list-header text-wrap>Medical Checklist</ion-list-header>
 
       <ion-item>
         <ion-label text-wrap>I have been told I have a heart condition that requires me to take up only physical activity recommended by a doctor.</ion-label>
@@ -38,7 +57,7 @@
 
       <ion-item>
         <ion-label text-wrap>I have in the past felt a pain in my chest when I do physical activity / exercise.</ion-label>
-        <ion-checkbox formControlName="q2" [(ngModel)]="medical.q2" ></ion-checkbox>
+        <ion-checkbox formControlName="q2" [(ngModel)]="medical.q2"></ion-checkbox>
       </ion-item>
 
       <ion-item>
@@ -48,7 +67,7 @@
 
       <ion-item>
         <ion-label text-wrap>I have in the past lost balance because I felt dizzy, or lost consciousness.</ion-label>
-        <ion-checkbox formControlName="q4" [(ngModel)]="medical.q4" ></ion-checkbox>
+        <ion-checkbox formControlName="q4" [(ngModel)]="medical.q4"></ion-checkbox>
       </ion-item>
 
       <ion-item>
@@ -58,7 +77,7 @@
 
       <ion-item>
         <ion-label text-wrap>I am taking medication for blood pressure or a heart condition.</ion-label>
-        <ion-checkbox formControlName="q6" [(ngModel)]="medical.q6" ></ion-checkbox>
+        <ion-checkbox formControlName="q6" [(ngModel)]="medical.q6"></ion-checkbox>
       </ion-item>
 
       <ion-item>
@@ -68,7 +87,7 @@
 
       <ion-item>
         <ion-label text-wrap>I sometimes have difficulty breathing - especially in cold dry conditions.</ion-label>
-        <ion-checkbox formControlName="q8" [(ngModel)]="medical.q8" ></ion-checkbox>
+        <ion-checkbox formControlName="q8" [(ngModel)]="medical.q8"></ion-checkbox>
       </ion-item>
 
       <ion-item>
@@ -78,7 +97,7 @@
 
       <ion-item>
         <ion-label text-wrap>I am pregnant.</ion-label>
-        <ion-checkbox formControlName="q10" [(ngModel)]="medical.q10" ></ion-checkbox>
+        <ion-checkbox formControlName="q10" [(ngModel)]="medical.q10"></ion-checkbox>
       </ion-item>
 
       <ion-item>
@@ -86,10 +105,10 @@
         <ion-checkbox formControlName="q11" [(ngModel)]="medical.q11"></ion-checkbox>
       </ion-item>
 
+      <ion-list-header text-wrap>Any specific issue / concern that you wish to highlight for consideration as you get started with the program?</ion-list-header>
+
       <ion-item>
-        <ion-label text-wrap floating>Any specific issue / concern that you wish to highlight for consideration as you get started with the program?</ion-label>
-        <ion-textarea name="specific_issue" formControlName="specific_issue" type="text" [(ngModel)]="medical.specific_issue"
-          [class.invalid]="!slideOneForm.controls.specific_issue.valid && (slideOneForm.controls.specific_issue.dirty || submitAttempt)"></ion-textarea>
+        <ion-textarea name="specific_issue" formControlName="specific_issue" type="text" [(ngModel)]="medical.specific_issue" [class.invalid]="!slideOneForm.controls.specific_issue.valid && (slideOneForm.controls.specific_issue.dirty || submitAttempt)"></ion-textarea>
       </ion-item>
 
       <ion-item *ngIf="!slideOneForm.controls.specific_issue.valid  && (slideOneForm.controls.specific_issue.dirty || submitAttempt)">
