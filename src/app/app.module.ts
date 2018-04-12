@@ -38,6 +38,8 @@ import { GoalForm } from '../pages/goals/goal-form';
 import { Medicals } from '../pages/medicals/medicals';
 import { MedicalDetails } from '../pages/medicals/medical-details';
 import { MedicalForm } from '../pages/medicals/medical-form';
+import { Schedules } from '../pages/schedules/schedules';
+import { ScheduleDetails } from '../pages/schedules/schedule-details';
 
 
 import { AboutPage } from '../pages/static/about';
@@ -64,6 +66,7 @@ import { UtcDatePipe } from '../pipes/utc-date/utc-date';
 import { LoginProvider } from '../providers/login-provider';
 import { HomeEvents } from '../providers/home-events';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { ScheduleApi } from '../providers/schedule-api';
 
 
 @NgModule({
@@ -86,6 +89,8 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     Medicals,
     MedicalDetails,
     MedicalForm,
+    Schedules,
+    ScheduleDetails,
     PhoneVerificationPage,
     RegisterPage,
     TitleCasePipe,
@@ -126,6 +131,8 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     Medicals,
     MedicalDetails,
     MedicalForm,
+    Schedules,
+    ScheduleDetails,
     AboutPage,
     HelpPage,
     ContactPage,
@@ -143,6 +150,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
     WorkoutApi,
     GoalApi,
     MedicalApi,
+    ScheduleApi,
     ResponseUtility,
     StatusBar,
     SplashScreen,

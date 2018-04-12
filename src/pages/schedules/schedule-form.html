@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Goals</ion-title>
+    <ion-title>Schedules</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,8 +17,8 @@
 
 
       <ion-item>
-        <ion-label text-wrap floating>{{getGoalText("REASON")}}</ion-label>
-        <ion-textarea name="reason" formControlName="reason" type="text" [(ngModel)]="goal.reason" [class.invalid]="!slideOneForm.controls.reason.valid && (slideOneForm.controls.reason.dirty || submitAttempt)"></ion-textarea>
+        <ion-label text-wrap floating>{{getScheduleText("REASON")}}</ion-label>
+        <ion-textarea name="reason" formControlName="reason" type="text" [(ngModel)]="schedule.reason" [class.invalid]="!slideOneForm.controls.reason.valid && (slideOneForm.controls.reason.dirty || submitAttempt)"></ion-textarea>
       </ion-item>
 
       <ion-item *ngIf="!slideOneForm.controls.reason.valid  && (slideOneForm.controls.reason.dirty || submitAttempt)">
@@ -26,17 +26,17 @@
       </ion-item>
 
       <ion-item>
-        <ion-label text-wrap floating>{{getGoalText("DELIGHT")}}</ion-label>
-        <ion-textarea name="delight" formControlName="delight" type="text" [(ngModel)]="goal.delight" [class.invalid]="!slideOneForm.controls.delight.valid && (slideOneForm.controls.delight.dirty || submitAttempt)"></ion-textarea>
+        <ion-label text-wrap floating>{{getScheduleText("DELIGHT")}}</ion-label>
+        <ion-textarea name="delight" formControlName="delight" type="text" [(ngModel)]="schedule.delight" [class.invalid]="!slideOneForm.controls.delight.valid && (slideOneForm.controls.delight.dirty || submitAttempt)"></ion-textarea>
       </ion-item>
 
       <ion-item *ngIf="!slideOneForm.controls.delight.valid  && (slideOneForm.controls.delight.dirty || submitAttempt)">
         <p class="error-text">Please enter some details.</p>
       </ion-item>
 
-      <ion-list radio-group formControlName="frequency" [(ngModel)]="goal.frequency">
+      <ion-list radio-group formControlName="frequency" [(ngModel)]="schedule.frequency">
 
-        <ion-list-header text-wrap>{{getGoalText("FREQ")}}</ion-list-header>
+        <ion-list-header text-wrap>{{getScheduleText("FREQ")}}</ion-list-header>
 
         <ion-item>
           <ion-label text-wrap>Not regular - less than once a week.</ion-label>
@@ -62,8 +62,8 @@
 
 
       <ion-item>
-        <ion-label text-wrap floating>{{getGoalText("CURRENT_ACTIVITY")}}</ion-label>
-        <ion-textarea name="current_activity" formControlName="current_activity" type="text" [(ngModel)]="goal.current_activity"
+        <ion-label text-wrap floating>{{getScheduleText("CURRENT_ACTIVITY")}}</ion-label>
+        <ion-textarea name="current_activity" formControlName="current_activity" type="text" [(ngModel)]="schedule.current_activity"
           [class.invalid]="!slideOneForm.controls.current_activity.valid && (slideOneForm.controls.current_activity.dirty || submitAttempt)"></ion-textarea>
       </ion-item>
 
