@@ -16,9 +16,13 @@ export class WorkoutApi {
     console.log('WorkoutApi Provider Created');
   }
 
-  getWorkouts() {
+  getWorkouts(fitness_test_id) {
     
-    return this.tokenService.get(`${this.base_url}.json`).map(response=>{
+    let endpoint = `${this.base_url}.json`;
+    if(fitness_test_id) {
+      endpoint = `${this.base_url}.json?fitness_test_id=${fitness_test_id}`;
+    }
+    return this.tokenService.get(endpoint).map(response=>{
       this.workouts = response.json();
       return this.workouts;      
     })

@@ -12,11 +12,15 @@ export class Workouts {
 
   workouts: any;
   workout: any;
+  fitness_test_id: any = null;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController,
     public workout_api: WorkoutApi, 
     public respUtility: ResponseUtility) {
+      if(this.navParams.data["fitness_test_id"] !== null) {
+        this.fitness_test_id = this.navParams.data["fitness_test_id"];
+      }
   }
 
   ionViewWillEnter() {
@@ -28,7 +32,7 @@ export class Workouts {
 
     loader.present();
 
-    this.workout_api.getWorkouts().subscribe(
+    this.workout_api.getWorkouts(this.fitness_test_id).subscribe(
       workouts => {
         this.workouts = workouts;
         console.log("Loaded workouts");

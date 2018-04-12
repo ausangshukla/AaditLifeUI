@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>FitnessTest Details</ion-title>
+    <ion-title>Fitness Test</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,8 +15,6 @@
 <ion-content>
 
   <ion-list>
-
-
 
     <ion-item>
       <ion-row>
@@ -221,6 +219,20 @@
         </ion-col>
       </ion-row>
     </ion-item>
+
+
+    <ion-item>
+      <ion-row>
+        <ion-col text-wrap>
+          <button ion-button full color="primary" (click)="showWorkouts()" >Workouts</button>
+        </ion-col>
+        <ion-col text-wrap>
+          <button ion-button full color="primary" (click)="showSchedules()" >Schedule</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    
 
   </ion-list>
 

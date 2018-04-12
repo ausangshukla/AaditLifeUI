@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { FitnessTestApi } from '../../providers/fitness-test-api';
 import { ResponseUtility } from '../../providers/response-utility';
-
+import {Workouts} from '../workouts/workouts';
+import {Schedules} from '../schedules/schedules';
 import * as _ from 'lodash';
 
 @Component({
@@ -80,4 +81,13 @@ export class FitnessTestDetails  {
     this.respUtility.confirmAction(this.deactivateFitnessTest.bind(this), fitness_test, "Deactivate FitnessTest. Confirm?");
   }
 
+  showWorkouts() {
+    this.respUtility.trackEvent("Workout", "Details", "click");
+    this.navCtrl.push(Workouts, {fitness_test_id: this.fitness_test.id});
+  }
+
+  showSchedules() {
+      this.respUtility.trackEvent("Schedule", "Details", "click");
+      this.navCtrl.push(Schedules, {fitness_test_id: this.fitness_test.id});
+  }
 }

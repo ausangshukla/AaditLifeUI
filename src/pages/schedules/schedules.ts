@@ -13,13 +13,18 @@ export class Schedules {
 
   schedules: any;
   schedule: any;
-
+  fitness_test_id: any = null;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController,
     public scheduleApi: ScheduleApi,
     public respUtility: ResponseUtility) {
+
+      if(this.navParams.data["fitness_test_id"] !== null) {
+        this.fitness_test_id = this.navParams.data["fitness_test_id"];
+      }
+
   }
 
   ionViewWillEnter() {
@@ -31,7 +36,7 @@ export class Schedules {
 
     loader.present();
 
-    this.scheduleApi.getSchedules().subscribe(
+    this.scheduleApi.getSchedules(this.fitness_test_id).subscribe(
       schedules => {
         this.schedules = schedules;
         console.log("Loaded schedules");

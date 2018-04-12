@@ -16,9 +16,12 @@ export class ScheduleApi {
     console.log('ScheduleApi Provider Created');
   }
 
-  getSchedules() {
-    
-    return this.tokenService.get(`${this.base_url}.json`).map(response=>{
+  getSchedules(fitness_test_id) {
+    let endpoint = `${this.base_url}.json`;
+    if(fitness_test_id) {
+      endpoint = `${this.base_url}.json?fitness_test_id=${fitness_test_id}`;
+    }
+    return this.tokenService.get(endpoint).map(response=>{
       this.schedules = response.json();
       return this.schedules;      
     })
