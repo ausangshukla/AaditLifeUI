@@ -18,6 +18,7 @@ import {FitnessTests} from '../pages/fitness-tests/fitness-tests'
 import {Workouts} from '../pages/workouts/workouts';
 import {Schedules} from '../pages/schedules/schedules';
 import {Goals} from '../pages/goals/goals';
+import {GoalForm} from '../pages/goals/goal-form';
 import {MedicalForm} from '../pages/medicals/medical-form';
 import { Login } from '../pages/login/login';
 import { AboutPage } from '../pages/static/about';
@@ -177,18 +178,6 @@ export class MyApp {
 
           this.ga.setUserId(this.currentUser["id"]); // Set the user ID using signed-in user_id.
 
-          if (this.currentUser.role == "Admin") {
-
-            this.pages = [
-              { title: 'Tests', component: FitnessTests, params: {} },
-              { title: 'About Us', component: AboutPage, params: {} },
-              { title: 'Terms & Conditions', component: TermsPage, params: {} },
-              { title: 'Contact Us', component: ContactPage, params: {} },
-              { title: 'Help', component: HelpPage, params: {} },
-
-            ];
-
-          } else if (this.currentUser.role != "Admin") {
             this.pages = [
               { title: 'Goals', component: Goals, params: {} },
               { title: 'Medicals', component: MedicalForm, params: {} },
@@ -201,14 +190,13 @@ export class MyApp {
               { title: 'Help', component: HelpPage, params: {} },
             ];
 
-          }
-
 
           if (this.currentUser.accept_terms != true) {
             // The terms have changed - we need to get him to accept the terms again
             this.respUtility.showWarning("Our terms have changed. Please read and accept the terms & conditions");
             this.edit_profile();
           }
+
 
         });
 
@@ -332,6 +320,7 @@ export class MyApp {
     }
   }
 
+  
   hideSplashScreen() {
     if (this.splashScreen) {
       setTimeout(() => {

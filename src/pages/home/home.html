@@ -48,17 +48,18 @@
       <div class="card-subtitle">{{currentUser.first_name}} {{currentUser.last_name}}</div>
     </ion-card>
 
-    <ion-card *ngIf="currentUser">
+    <ion-card *ngIf="currentUser && !currentUser.goals_setup">
+          <button *ngIf="!currentUser.goals_setup"
+            icon-right ion-button (click)="setupGoals()">
+            Setup Your Running Goals
+            <ion-icon name='flash'></ion-icon>
+          </button>
 
-
-      <ion-card-content>
-
-        <ion-list>
-
-        </ion-list>
-
-      </ion-card-content>
-
+          <button *ngIf="!currentUser.initial_test_completed,"
+            icon-right ion-button (click)="setupFitnessTest()">
+            Schedule A Fitness Test
+            <ion-icon name='body'></ion-icon>
+          </button>
     </ion-card>
 
   </div>

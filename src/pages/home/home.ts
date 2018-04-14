@@ -10,6 +10,7 @@ import { Events } from 'ionic-angular';
 import { ContactPage } from '../static/contact';
 import { Menu } from './menus';
 import { HomeEvents } from '../../providers/home-events';
+import { GoalForm } from '../goals/goal-form';
 
 
 @Component({
@@ -61,4 +62,12 @@ export class HomePage implements Menu {
     this.navCtrl.push(ContactPage);
   }
 
+  setupGoals() {
+    this.navCtrl.push(GoalForm, {})
+  }
+
+  setupFitnessTest() {
+    this.navCtrl.push(GoalForm, {})
+  }
+  
 }
