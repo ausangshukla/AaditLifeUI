@@ -12,9 +12,11 @@
 
   <ion-list inset >
 
-    <button ion-item *ngFor="let schedule of schedules" (click)=getScheduleDetails(schedule)>
+    <button ion-item *ngFor="let schedule of schedules" (click)=rateSchedule(schedule)>
 
-      <ion-item-divider text-wrap text-center color="secondary">{{schedule.scheduled_date | date}} : {{schedule.workout_type}}</ion-item-divider>
+      <ion-item-divider text-wrap text-center color="secondary">
+        {{schedule.scheduled_date | date}} : {{schedule.workout_type}}
+      </ion-item-divider>
       <ion-item>
         <ion-row>
           <ion-col text-wrap>
@@ -65,9 +67,10 @@
           </ion-col>
         </ion-row>
       </ion-item>
-  
-
-
+      
+      <ion-item *ngIf="schedule.rating > 0" >
+          <rating text-center id="rating" [(ngModel)]="schedule.rating" readOnly="true"></rating>
+      </ion-item>      
 
     </button>
 

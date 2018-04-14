@@ -40,6 +40,7 @@ import { MedicalDetails } from '../pages/medicals/medical-details';
 import { MedicalForm } from '../pages/medicals/medical-form';
 import { Schedules } from '../pages/schedules/schedules';
 import { ScheduleDetails } from '../pages/schedules/schedule-details';
+import { ScheduleForm } from '../pages/schedules/schedule-form';
 
 
 import { AboutPage } from '../pages/static/about';
@@ -91,6 +92,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     MedicalForm,
     Schedules,
     ScheduleDetails,
+    ScheduleForm,
     PhoneVerificationPage,
     RegisterPage,
     TitleCasePipe,
@@ -133,6 +135,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     MedicalForm,
     Schedules,
     ScheduleDetails,
+    ScheduleForm,
     AboutPage,
     HelpPage,
     ContactPage,

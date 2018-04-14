@@ -48,9 +48,9 @@ export class Schedules {
 
   }
 
-  getScheduleDetails(schedule) {
+  rateSchedule(schedule) {
     this.respUtility.trackEvent("Schedule", "Form", "click");
-    this.navCtrl.push(ScheduleDetails, schedule);
+    this.navCtrl.push(ScheduleForm, schedule);
   }
 
 }

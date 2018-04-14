@@ -36,10 +36,8 @@ export class ScheduleForm {
     console.log(this.schedule);  
 
     this.slideOneForm = formBuilder.group({
-      reason: ['', Validators.compose([Validators.minLength(10), Validators.required])],
-      frequency: [],
-      current_activity: ['', Validators.compose([Validators.minLength(10), Validators.required])],
-      delight: ['', Validators.compose([Validators.minLength(10), Validators.required])],
+      rating: ['', Validators.compose([Validators.required])],
+      comments: [],
     });
 
   }
