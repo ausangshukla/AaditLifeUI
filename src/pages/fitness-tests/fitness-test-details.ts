@@ -5,6 +5,7 @@ import { ResponseUtility } from '../../providers/response-utility';
 import {Workouts} from '../workouts/workouts';
 import {Schedules} from '../schedules/schedules';
 import * as _ from 'lodash';
+import { CardioProfiles } from '../cardio-profile/cardio-profiles';
 
 @Component({
   selector: 'page-fitness-test-details',
@@ -90,4 +91,10 @@ export class FitnessTestDetails  {
       this.respUtility.trackEvent("Schedule", "Details", "click");
       this.navCtrl.push(Schedules, {fitness_test_id: this.fitness_test.id});
   }
+
+  showCardioProfile() {
+    this.respUtility.trackEvent("CardioProfiles", "Details", "click");
+    this.navCtrl.push(CardioProfiles, this.fitness_test.cardio_profiles);
+}
+
 }
