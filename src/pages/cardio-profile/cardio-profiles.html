@@ -9,20 +9,29 @@
 
 <ion-content>
 
-  <ion-list inset >
+  <ion-card>
+    <ion-card-header>
+      Speed Kmph vs Heart Rate (BPM)
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #lineCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
 
-      <ion-item no-lines>
-          <ion-row>
-            <ion-col text-center>
-              Speed Kmph
-            </ion-col>
-            <ion-col text-center>
-              Heart Rate (BPM)
-            </ion-col>
-          </ion-row>
-        </ion-item>
+  <ion-list inset>
 
-        
+    <ion-item no-lines>
+      <ion-row>
+        <ion-col text-center>
+          Speed Kmph
+        </ion-col>
+        <ion-col text-center>
+          Heart Rate (BPM)
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+
     <div ion-item *ngFor="let cardio_profile of cardio_profiles">
 
       <ion-item no-lines>
