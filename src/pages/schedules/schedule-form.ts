@@ -92,4 +92,14 @@ export class ScheduleForm {
     }
   }
 
+  setRating(val) {
+    this.slideOneForm.controls['rating'].setValue(val);
+    this.schedule["rating"] = val;
+    console.log(`Set rating to ${val}`);
+    if(val != -1) {
+      setTimeout(()=>{    
+          this.save();
+      },1000);
+    }
+  }
 }
