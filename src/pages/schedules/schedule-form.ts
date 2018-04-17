@@ -33,7 +33,7 @@ export class ScheduleForm {
     private keyboard: Keyboard) {
 
     this.schedule = this.navParams.data;
-    console.log(this.schedule);  
+    console.log(this.schedule);
 
     this.slideOneForm = formBuilder.group({
       rating: ['', Validators.compose([Validators.required])],
@@ -63,32 +63,33 @@ export class ScheduleForm {
     }
     else {
       this.submitAttempt = false;
-      loader.present();
-      if (this.schedule["id"]) {
-        this.scheduleApi.updateSchedule(this.schedule).subscribe(
-          schedule => {
-            this.respUtility.showSuccess('Schedule saved successfully.');
-            this.navCtrl.pop();
-          },
-          error => {
-            this.respUtility.showFailure(error);
-            loader.dismiss();
-          },
-          () => { loader.dismiss(); }
-        );
-      } else {
-        this.scheduleApi.createSchedule(this.schedule).subscribe(
-          schedule => {
-            this.respUtility.showSuccess('Schedule saved successfully.');
-            this.navCtrl.pop();
-          },
-          error => {
-            this.respUtility.showFailure(error);
-            loader.dismiss();
-          },
-          () => { loader.dismiss(); }
-        );
-      }
+      loader.present().then(() => {
+        if (this.schedule["id"]) {
+          this.scheduleApi.updateSchedule(this.schedule).subscribe(
+            schedule => {
+              this.respUtility.showSuccess('Schedule saved successfully.');
+              this.navCtrl.pop();
+            },
+            error => {
+              this.respUtility.showFailure(error);
+              loader.dismiss();
+            },
+            () => { loader.dismiss(); }
+          );
+        } else {
+          this.scheduleApi.createSchedule(this.schedule).subscribe(
+            schedule => {
+              this.respUtility.showSuccess('Schedule saved successfully.');
+              this.navCtrl.pop();
+            },
+            error => {
+              this.respUtility.showFailure(error);
+              loader.dismiss();
+            },
+            () => { loader.dismiss(); }
+          );
+        }
+      });
     }
   }
 
@@ -96,10 +97,10 @@ export class ScheduleForm {
     this.slideOneForm.controls['rating'].setValue(val);
     this.schedule["rating"] = val;
     console.log(`Set rating to ${val}`);
-    if(val != -1) {
-      setTimeout(()=>{    
-          this.save();
-      },1000);
+    if (val != -1) {
+      setTimeout(() => {
+        this.save();
+      }, 1000);
     }
   }
 }
