@@ -42,6 +42,18 @@ export class ScheduleApi {
     })
   }
 
+  generateSchedule(fitness_test_id, day_sequence) {
+    let endpoint = `${this.base_url}/generate_schedule.json`
+    if(fitness_test_id) {
+      endpoint = `${this.base_url}/generate_schedule.json?fitness_test_id=${fitness_test_id}`;
+    }
+    return this.tokenService.post(endpoint, {day_sequence: day_sequence}).map(response=>{
+      this.schedule = response.json();
+      return this.schedule;
+      //return response.status;
+    })
+  }
+
   updateSchedule(schedule) {
     console.log(`ScheduleApi: Updating schedule`)
     console.log(schedule);

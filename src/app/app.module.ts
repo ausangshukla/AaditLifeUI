@@ -41,6 +41,7 @@ import { MedicalForm } from '../pages/medicals/medical-form';
 import { Schedules } from '../pages/schedules/schedules';
 import { ScheduleDetails } from '../pages/schedules/schedule-details';
 import { ScheduleForm } from '../pages/schedules/schedule-form';
+import { ScheduleCreate } from '../pages/schedules/schedule-create.';
 import { CardioProfiles } from '../pages/cardio-profile/cardio-profiles';
 
 import { AboutPage } from '../pages/static/about';
@@ -93,6 +94,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     Schedules,
     ScheduleDetails,
     ScheduleForm,
+    ScheduleCreate,
     CardioProfiles,
     PhoneVerificationPage,
     RegisterPage,
@@ -137,6 +139,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     Schedules,
     ScheduleDetails,
     ScheduleForm,
+    ScheduleCreate,
     CardioProfiles,
     AboutPage,
     HelpPage,

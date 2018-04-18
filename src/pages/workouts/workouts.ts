@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, LoadingController, Content } from 'ionic-angular';
 import { ResponseUtility } from '../../providers/response-utility';
 import { WorkoutDetails } from './workout-details';
 import { WorkoutApi } from '../../providers/workout-api';
@@ -10,6 +10,9 @@ import { WorkoutApi } from '../../providers/workout-api';
 })
 export class Workouts {
 
+  @ViewChild(Content) content: Content;
+  public showNavbar: boolean;
+  
   workouts: any;
   workout: any;
   fitness_test_id: any = null;
@@ -46,5 +49,11 @@ export class Workouts {
   getWorkoutDetails(workout) {
     this.respUtility.trackEvent("Workout", "Details", "click");
     this.navCtrl.push(WorkoutDetails, workout);
+  }
+
+  public hideNavbar(): void {
+    this.showNavbar = false;
+    // You should resize the content to use the space left by the navbar
+    this.content.resize();
   }
 }
