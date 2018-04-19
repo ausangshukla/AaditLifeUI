@@ -35,6 +35,11 @@ import { WorkoutDetails } from '../pages/workouts/workout-details';
 import { Goals } from '../pages/goals/goals';
 import { GoalDetails } from '../pages/goals/goal-details';
 import { GoalForm } from '../pages/goals/goal-form';
+
+import { StressTests } from '../pages/stress-tests/stress-tests';
+import { StressTestDetails } from '../pages/stress-tests/stress-test-details';
+import { StressTestForm } from '../pages/stress-tests/stress-test-form';
+
 import { Medicals } from '../pages/medicals/medicals';
 import { MedicalDetails } from '../pages/medicals/medical-details';
 import { MedicalForm } from '../pages/medicals/medical-form';
@@ -54,14 +59,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { MomentModule } from 'angular2-moment';
-import { UserApi } from '../providers/user-api'
-import { WorkoutApi } from '../providers/workout-api'
-import { GoalApi } from '../providers/goal-api'
-import { MedicalApi } from '../providers/medical-api'
-import { FitnessTestApi } from '../providers/fitness-test-api'
-import { Config } from '../providers/config'
+import { UserApi } from '../providers/user-api';
+import { WorkoutApi } from '../providers/workout-api';
+import { GoalApi } from '../providers/goal-api';
+import { StressTestApi } from '../providers/stress-test-api';
+import { MedicalApi } from '../providers/medical-api';
+import { FitnessTestApi } from '../providers/fitness-test-api';
+import { Config } from '../providers/config';
 
-import { ResponseUtility } from '../providers/response-utility'
+import { ResponseUtility } from '../providers/response-utility';
 import { Push } from '@ionic-native/push';
 import { TitleCasePipe } from '../pipes/title-case/title-case';
 import { UtcDatePipe } from '../pipes/utc-date/utc-date';
@@ -88,6 +94,9 @@ import { ScheduleApi } from '../providers/schedule-api';
     Goals,
     GoalDetails,
     GoalForm,
+    StressTests,
+    StressTestDetails,
+    StressTestForm,
     Medicals,
     MedicalDetails,
     MedicalForm,
@@ -133,6 +142,9 @@ import { ScheduleApi } from '../providers/schedule-api';
     Goals,
     GoalDetails,
     GoalForm,
+    StressTests,
+    StressTestDetails,
+    StressTestForm,
     Medicals,
     MedicalDetails,
     MedicalForm,
@@ -157,6 +169,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     FitnessTestApi,
     WorkoutApi,
     GoalApi,
+    StressTestApi,
     MedicalApi,
     ScheduleApi,
     ResponseUtility,

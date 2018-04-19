@@ -28,6 +28,7 @@ import { ContactPage } from '../pages/static/contact';
 
 import { CodePush, SyncStatus, InstallMode } from '@ionic-native/code-push';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
+import { StressTests } from '../pages/stress-tests/stress-tests';
 
 
 @Component({
@@ -184,6 +185,7 @@ export class MyApp {
               { title: 'Tests', component: FitnessTests, params: {} },
               { title: 'Workouts', component: Workouts, params: {} },
               { title: 'Schedules', component: Schedules, params: {} },
+              { title: 'Stress Tests', component: StressTests, params: {} },
               { title: 'About Us', component: AboutPage, params: {} },
               { title: 'Terms & Conditions', component: TermsPage, params: {} },
               { title: 'Contact Us', component: ContactPage, params: {} },

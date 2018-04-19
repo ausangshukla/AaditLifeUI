@@ -4,6 +4,7 @@ import { ScheduleApi } from '../../providers/schedule-api';
 import { ResponseUtility } from '../../providers/response-utility';
 
 import * as _ from 'lodash';
+import { ScheduleForm } from './schedule-form';
 
 @Component({
   selector: 'schedule-details',
@@ -80,6 +81,12 @@ export class ScheduleDetails  {
     );
   }
 
+
+  rateSchedule(schedule) {
+    this.respUtility.trackEvent("Schedule", "Form", "click");
+    this.navCtrl.push(ScheduleForm, schedule);
+  }
+  
   public hideNavbar(): void {
     this.showNavbar = false;
     // You should resize the content to use the space left by the navbar
