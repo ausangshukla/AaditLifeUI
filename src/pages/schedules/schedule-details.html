@@ -1,13 +1,20 @@
-<ion-content>
+<ion-header>
 
-  <ion-list inset>
+  <ion-navbar color="primary" *ngIf="showNavbar">
+    <ion-title>Schedule</ion-title>
+  </ion-navbar>
 
+</ion-header>
+  
+<ion-content padding #schedule_content>
+
+  <ion-list inset *ngIf="schedule.workout_type">
     <ion-item-divider class="schedule_header" text-wrap text-center [style.backgroundColor]="(schedule.workout_type != 'Strength') ? '#32db64' : '#488aff'">
       <h2>{{schedule.scheduled_date | date}} : {{schedule.workout_type}}</h2>
     </ion-item-divider>
 
 
-    <div *ngIf="schedule.workout_type != 'Strength'">
+    <div *ngIf="schedule.workout && schedule.workout_type != 'Strength'">
       <ion-item>
         <ion-row>
           <ion-col text-wrap>
@@ -58,6 +65,79 @@
           </ion-col>
         </ion-row>
       </ion-item>
+
+    </div>
+
+    <div *ngIf="schedule.workout_type == 'Strength'">
+      <ion-item>
+        <ion-row>
+          <ion-col text-wrap>
+            Balance:
+          </ion-col>
+          <ion-col text-wrap>
+            mins
+          </ion-col>
+          <ion-col text-wrap>
+            Plank:
+          </ion-col>
+          <ion-col text-wrap>
+            mins
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item>
+        <ion-row>
+          <ion-col text-wrap>
+            Push Ups:
+          </ion-col>
+          <ion-col text-wrap>
+            count
+          </ion-col>
+          <ion-col text-wrap>
+            One Leg Raise:
+          </ion-col>
+          <ion-col text-wrap>
+            count
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item>
+        <ion-row>
+          <ion-col text-wrap>
+            Leg Raise Both:
+          </ion-col>
+          <ion-col text-wrap>
+            count
+          </ion-col>
+          <ion-col text-wrap>
+            Squats:
+          </ion-col>
+          <ion-col text-wrap>
+            count
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item>
+        <ion-row>
+          <ion-col text-wrap>
+            Crunches:
+          </ion-col>
+          <ion-col text-wrap>
+            count
+          </ion-col>
+          <ion-col text-wrap>
+            Superman:
+          </ion-col>
+          <ion-col text-wrap>
+            mins
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      
 
     </div>
 

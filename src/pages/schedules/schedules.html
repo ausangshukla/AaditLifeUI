@@ -14,9 +14,11 @@
 
     <button ion-item *ngFor="let schedule of schedules" (click)=rateSchedule(schedule)>
 
-      <ion-item-divider class="schedule_header" text-wrap text-center [style.backgroundColor]="(schedule.workout_type != 'Strength') ? '#32db64' : '#488aff'">
+      <ion-item class="schedule_header" text-wrap text-center [style.backgroundColor]="(schedule.workout_type != 'Strength') ? '#32db64' : '#488aff'">
         <h2>{{schedule.scheduled_date | date}} : {{schedule.workout_type}}</h2>
-      </ion-item-divider>
+        <ion-icon name='checkbox' item-right *ngIf="schedule.completed"></ion-icon>
+        <ion-icon name='close-circle' item-right *ngIf="schedule.completed==false"></ion-icon>
+      </ion-item>
       
       <div *ngIf="schedule.workout_type != 'Strength'">
         <ion-item>

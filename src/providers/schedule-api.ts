@@ -34,6 +34,13 @@ export class ScheduleApi {
     })
   }
 
+  getTodaysScheduleDetails() {
+    return this.tokenService.get(`${this.base_url}/todays_schedule.json`).map(response=>{
+      this.schedule = response.json();
+      return this.schedule;
+    })
+  }
+
   createSchedule(schedule) {
     return this.tokenService.post(`${this.base_url}.json`, schedule).map(response=>{
       this.schedule = response.json();

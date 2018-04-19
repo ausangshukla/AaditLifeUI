@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Angular2TokenService } from 'angular2-token';
 import { Login } from '../login/login';
@@ -11,6 +11,7 @@ import { ContactPage } from '../static/contact';
 import { Menu } from './menus';
 import { HomeEvents } from '../../providers/home-events';
 import { GoalForm } from '../goals/goal-form';
+import { ScheduleDetails } from '../schedules/schedule-details';
 
 
 @Component({
@@ -18,6 +19,8 @@ import { GoalForm } from '../goals/goal-form';
   templateUrl: 'home.html'
 })
 export class HomePage implements Menu {
+
+  @ViewChild(ScheduleDetails) scheduleDetails: ScheduleDetails;
 
   currentUser: any;
   registerCareHome = false;
@@ -31,7 +34,14 @@ export class HomePage implements Menu {
     private loginProvider: LoginProvider) {
 
     this.homeEvents.registerMenu(this);
-
+    this.events.subscribe('user:login:success', () => {
+      this.currentUser = tokenService.currentUserData;
+      // Ensure that the scheduleDetails available are shown
+      if(this.scheduleDetails) {
+        this.scheduleDetails.loadTodaysSchedule();
+        this.scheduleDetails.hideNavbar();
+      }
+    });
   }
 
   displayMsgs() {
@@ -41,6 +51,12 @@ export class HomePage implements Menu {
   ionViewWillEnter() {
     console.log('ionViewWillEnter HomePage ');
     this.currentUser = this.tokenService.currentUserData;
+    if(this.scheduleDetails) {
+      // Ensure that the scheduleDetails available are shown
+      this.scheduleDetails.loadTodaysSchedule();
+      this.scheduleDetails.hideNavbar();
+    };
+
   }
 
 
@@ -69,5 +85,5 @@ export class HomePage implements Menu {
   setupFitnessTest() {
     this.navCtrl.push(GoalForm, {})
   }
-  
+
 }

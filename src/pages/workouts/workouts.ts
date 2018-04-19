@@ -11,7 +11,7 @@ import { WorkoutApi } from '../../providers/workout-api';
 export class Workouts {
 
   @ViewChild(Content) content: Content;
-  public showNavbar: boolean;
+  public showNavbar: boolean = true;
   
   workouts: any;
   workout: any;

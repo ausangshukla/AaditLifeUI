@@ -14,7 +14,20 @@
 
 <ion-content>
 
-  <ion-list>
+  <ion-list inset>
+
+    <ion-item color="primary" (click)="showCardioProfile()">
+      Cardio Profile
+      <ion-icon name="heart" item-end></ion-icon>
+    </ion-item>
+    <ion-item color="primary" (click)="showWorkouts()">
+      Workouts
+      <ion-icon name="pulse" item-end></ion-icon>
+    </ion-item>
+    <ion-item color="primary" (click)="showSchedules()">
+      Schedule
+      <ion-icon name="clock" item-end></ion-icon>
+    </ion-item>
 
     <ion-item>
       <ion-row>
@@ -219,22 +232,6 @@
         </ion-col>
       </ion-row>
     </ion-item>
-
-
-    <ion-item>
-      <ion-row>
-        <ion-col text-wrap>
-          <button ion-button full color="primary" (click)="showCardioProfile()">Cardio Profile</button>
-        </ion-col>
-        <ion-col text-wrap>
-          <button ion-button full color="primary" (click)="showWorkouts()">Workouts</button>
-        </ion-col>
-        <ion-col text-wrap>
-          <button ion-button full color="primary" (click)="showSchedules()">Schedule</button>
-        </ion-col>
-      </ion-row>
-    </ion-item>
-
 
 
   </ion-list>
