@@ -15,6 +15,9 @@
 
     <form [formGroup]="slideOneForm">
 
+      <ion-item-divider text-center color="secondary" *ngIf="stress_test.score_interpretation">
+        Score: {{stress_test.score}}, {{stress_test.score_interpretation}}
+      </ion-item-divider>
 
       <ion-item>
         <ion-label text-wrap>{{getStressTestText("unexpected_upset")}}</ion-label>

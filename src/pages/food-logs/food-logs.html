@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Food Log</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list inset>
+
+    <button ion-item *ngFor="let food_log of food_logs" (click)=getFoodLogDetails(food_log)>
+
+      <ion-item-divider text-wrap color="secondary">{{food_log.meal}}</ion-item-divider>
+      <ion-item no-lines>
+        <ion-row>
+          <ion-col text-wrap>
+            {{food_log.intake_date | date: "dd/mm/yy HH:mm"}}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+      <ion-item no-lines>
+        <ion-row>
+          <ion-col text-wrap>
+            {{food_log.details}}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </button>
+
+    <ion-fab bottom right>
+      <button ion-fab (click)="newFoodLog()">+</button>
+    </ion-fab>
+
+  </ion-list>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button full color="secondary" (click)="getFoodLogs(-1)">< Prev Week</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button full color="primary" (click)="getFoodLogs(1)">Next Week ></button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

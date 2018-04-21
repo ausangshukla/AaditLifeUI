@@ -12,7 +12,7 @@
     <ion-item-divider class="schedule_header" text-wrap text-center [style.backgroundColor]="(schedule.workout_type != 'Strength') ? '#32db64' : '#488aff'">
       <h2>{{schedule.scheduled_date | date}} : {{schedule.workout_type}}</h2>
       <ion-icon name='checkbox' item-right *ngIf="schedule.completed"></ion-icon>
-      <ion-icon name='close-circle' item-right *ngIf="schedule.completed==false"></ion-icon>
+      <ion-icon name='warning' item-right *ngIf="schedule.completed==false"></ion-icon>
     </ion-item-divider>
 
 

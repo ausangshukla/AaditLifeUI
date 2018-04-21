@@ -16,6 +16,7 @@ import { UserForm } from '../pages/users/user-form';
 import { RegisterPage } from '../pages/users/register';
 import {FitnessTests} from '../pages/fitness-tests/fitness-tests'
 import {Workouts} from '../pages/workouts/workouts';
+import {FoodLogs} from '../pages/food-logs/food-logs';
 import {Schedules} from '../pages/schedules/schedules';
 import {Goals} from '../pages/goals/goals';
 import {GoalForm} from '../pages/goals/goal-form';
@@ -186,6 +187,7 @@ export class MyApp {
               { title: 'Workouts', component: Workouts, params: {} },
               { title: 'Schedules', component: Schedules, params: {} },
               { title: 'Stress Tests', component: StressTests, params: {} },
+              { title: 'Food Logs', component: FoodLogs, params: {} },
               { title: 'About Us', component: AboutPage, params: {} },
               { title: 'Terms & Conditions', component: TermsPage, params: {} },
               { title: 'Contact Us', component: ContactPage, params: {} },

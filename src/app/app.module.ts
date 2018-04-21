@@ -43,6 +43,9 @@ import { StressTestForm } from '../pages/stress-tests/stress-test-form';
 import { Medicals } from '../pages/medicals/medicals';
 import { MedicalDetails } from '../pages/medicals/medical-details';
 import { MedicalForm } from '../pages/medicals/medical-form';
+import { FoodLogs } from '../pages/food-logs/food-logs';
+import { FoodLogDetails } from '../pages/food-logs/food-log-details';
+import { FoodLogForm } from '../pages/food-logs/food-log-form';
 import { Schedules } from '../pages/schedules/schedules';
 import { ScheduleDetails } from '../pages/schedules/schedule-details';
 import { ScheduleForm } from '../pages/schedules/schedule-form';
@@ -64,6 +67,7 @@ import { WorkoutApi } from '../providers/workout-api';
 import { GoalApi } from '../providers/goal-api';
 import { StressTestApi } from '../providers/stress-test-api';
 import { MedicalApi } from '../providers/medical-api';
+import { FoodLogApi } from '../providers/food-log-api';
 import { FitnessTestApi } from '../providers/fitness-test-api';
 import { Config } from '../providers/config';
 
@@ -94,6 +98,9 @@ import { ScheduleApi } from '../providers/schedule-api';
     Goals,
     GoalDetails,
     GoalForm,
+    FoodLogs,
+    FoodLogDetails,
+    FoodLogForm,
     StressTests,
     StressTestDetails,
     StressTestForm,
@@ -139,6 +146,9 @@ import { ScheduleApi } from '../providers/schedule-api';
     FitnessTestDetails,
     Workouts,
     WorkoutDetails,
+    FoodLogs,
+    FoodLogDetails,
+    FoodLogForm,
     Goals,
     GoalDetails,
     GoalForm,
@@ -168,6 +178,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     UserApi,
     FitnessTestApi,
     WorkoutApi,
+    FoodLogApi,
     GoalApi,
     StressTestApi,
     MedicalApi,

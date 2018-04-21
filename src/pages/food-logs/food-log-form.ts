@@ -2,20 +2,20 @@ import { IonicPage, NavController, NavParams, AlertController, ToastController, 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, ViewChild, ElementRef, Renderer } from '@angular/core';
 import { Keyboard } from '@ionic-native/keyboard';
-import { StressTestApi } from '../../providers/stress-test-api';
+import { FoodLogApi } from '../../providers/food-log-api';
 import { ResponseUtility } from '../../providers/response-utility';
 import { Angular2TokenService } from 'angular2-token';
 import { TermsPage } from '../static/terms';
 import { CheckboxValidator } from '../../providers/checkbox-validator';
 
 @Component({
-  selector: 'stress-test-form',
-  templateUrl: 'stress-test-form.html',
+  selector: 'food-log-form',
+  templateUrl: 'food-log-form.html',
 })
-export class StressTestForm {
+export class FoodLogForm {
 
-  stress_test: {};
-  questions: any;
+  food_log: {};
+
   slideOneForm: FormGroup;
 
   submitAttempt: boolean = false;
@@ -23,7 +23,7 @@ export class StressTestForm {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
-    public stress_testApi: StressTestApi,
+    public food_logApi: FoodLogApi,
     public respUtility: ResponseUtility,
     public loadingController: LoadingController,
     private tokenService: Angular2TokenService,
@@ -31,39 +31,28 @@ export class StressTestForm {
     private renderer: Renderer,
     private keyboard: Keyboard) {
 
-    this.stress_test = this.navParams.data;
-    console.log(this.stress_test);  
+    this.food_log = this.navParams.data;
+    console.log(this.food_log);  
 
     this.slideOneForm = formBuilder.group({
-
-      unexpected_upset: ['', Validators.compose([Validators.required])], 
-      unable_to_control:['', Validators.compose([Validators.required])],  
-      nervous: ['', Validators.compose([Validators.required])], 
-      confident: ['', Validators.compose([Validators.required])],  
-      things_going_right: ['', Validators.compose([Validators.required])], 
-      cannot_cope: ['', Validators.compose([Validators.required])],  
-      control_irritation: ['', Validators.compose([Validators.required])], 
-      top_of_things: ['', Validators.compose([Validators.required])], 
-      anger: ['', Validators.compose([Validators.required])],  
-      difficulties_piling: ['', Validators.compose([Validators.required])], 
-
+      meal: ['', Validators.compose([Validators.maxLength(15), Validators.required])],
+      intake_date: ['', Validators.compose([Validators.required])],
+      details: ['', Validators.compose([Validators.required])],
     });
 
-
-    this.questions = Object.keys(this.stress_testApi.getAllText());
   }
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StressTestForm');
-    this.respUtility.trackView("StressTestForm");
+    console.log('ionViewDidLoad FoodLogForm');
+    this.respUtility.trackView("FoodLogForm");
   }
 
 
   save() {
-    this.respUtility.trackEvent("StressTest", "Save", "click");
+    this.respUtility.trackEvent("FoodLog", "Save", "click");
     this.submitAttempt = true;
-    //console.log(this.stress_test);
+    //console.log(this.food_log);
     let loader = this.loadingController.create({
       content: 'Saving ...'
     });
@@ -75,10 +64,10 @@ export class StressTestForm {
     else {
       this.submitAttempt = false;
       loader.present();
-      if (this.stress_test["id"]) {
-        this.stress_testApi.updateStressTest(this.stress_test).subscribe(
-          stress_test => {
-            this.respUtility.showSuccess('StressTest saved successfully.');
+      if (this.food_log["id"]) {
+        this.food_logApi.updateFoodLog(this.food_log).subscribe(
+          food_log => {
+            this.respUtility.showSuccess('FoodLog saved successfully.');
             this.navCtrl.pop();
           },
           error => {
@@ -88,9 +77,9 @@ export class StressTestForm {
           () => { loader.dismiss(); }
         );
       } else {
-        this.stress_testApi.createStressTest(this.stress_test).subscribe(
-          stress_test => {
-            this.respUtility.showSuccess('StressTest saved successfully.');
+        this.food_logApi.createFoodLog(this.food_log).subscribe(
+          food_log => {
+            this.respUtility.showSuccess('FoodLog saved successfully.');
             this.navCtrl.pop();
           },
           error => {
@@ -103,12 +92,4 @@ export class StressTestForm {
     }
   }
 
-
-  getStressTestText(name) {
-    return this.stress_testApi.getStressTestText(name);
-  }
-
-  getStressColor() {
-  }
-  
 }
