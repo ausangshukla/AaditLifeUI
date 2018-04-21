@@ -16,20 +16,20 @@
     </ion-item-divider>
 
 
-    <div *ngIf="schedule.workout && schedule.workout_type != 'Strength'">
+    <div *ngIf="schedule.exercise && schedule.workout_type != 'Strength'">
       <ion-item>
         <ion-row>
           <ion-col text-wrap>
             Activity Time:
           </ion-col>
           <ion-col text-wrap>
-            {{schedule.workout.activity_time}} mins
+            {{schedule.exercise.activity_time}} mins
           </ion-col>
           <ion-col text-wrap>
             Activity Speed:
           </ion-col>
           <ion-col text-wrap>
-            {{schedule.workout.activity_speed}} Kmh
+            {{schedule.exercise.activity_speed}} Kmh
           </ion-col>
         </ion-row>
       </ion-item>
@@ -40,13 +40,13 @@
             Recovery Time
           </ion-col>
           <ion-col text-wrap>
-            {{schedule.workout.recovery_time}} mins
+            {{schedule.exercise.recovery_time}} mins
           </ion-col>
           <ion-col text-wrap>
             Recovery Speed:
           </ion-col>
           <ion-col text-wrap>
-            {{schedule.workout.recovery_speed}} Kmh
+            {{schedule.exercise.recovery_speed}} Kmh
           </ion-col>
         </ion-row>
       </ion-item>
@@ -57,13 +57,13 @@
             Repeats:
           </ion-col>
           <ion-col text-wrap>
-            {{schedule.workout.repeats}}
+            {{schedule.exercise.repeats}}
           </ion-col>
           <ion-col text-wrap>
             Total Duration:
           </ion-col>
           <ion-col text-wrap>
-            {{schedule.workout.total_duration}} mins
+            {{schedule.exercise.total_duration}} mins
           </ion-col>
         </ion-row>
       </ion-item>
@@ -77,13 +77,15 @@
             Balance:
           </ion-col>
           <ion-col text-wrap>
-            mins
+            {{schedule.exercise.balance}} mins
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col text-wrap>
             Plank:
           </ion-col>
           <ion-col text-wrap>
-            mins
+            {{schedule.exercise.plank}} mins
           </ion-col>
         </ion-row>
       </ion-item>
@@ -94,13 +96,15 @@
             Push Ups:
           </ion-col>
           <ion-col text-wrap>
-            count
+            {{schedule.exercise.pushups}} count
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col text-wrap>
             One Leg Raise:
           </ion-col>
           <ion-col text-wrap>
-            count
+            {{schedule.exercise.one_leg_raise}} count
           </ion-col>
         </ion-row>
       </ion-item>
@@ -111,13 +115,15 @@
             Leg Raise Both:
           </ion-col>
           <ion-col text-wrap>
-            count
+            {{schedule.exercise.leg_raise_both}} count
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col text-wrap>
             Squats:
           </ion-col>
           <ion-col text-wrap>
-            count
+            {{schedule.exercise.squats}} count
           </ion-col>
         </ion-row>
       </ion-item>
@@ -128,13 +134,15 @@
             Crunches:
           </ion-col>
           <ion-col text-wrap>
-            count
+            {{schedule.exercise.crunches}} count
           </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col text-wrap>
             Superman:
           </ion-col>
           <ion-col text-wrap>
-            mins
+            {{schedule.exercise.superman}} mins
           </ion-col>
         </ion-row>
       </ion-item>
