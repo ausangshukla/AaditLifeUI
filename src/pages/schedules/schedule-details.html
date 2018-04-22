@@ -72,7 +72,7 @@
 
     <div *ngIf="schedule.workout_type == 'Strength'">
       <ion-item>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.balance && schedule.exercise.balance > 0">
           <ion-col text-wrap>
             Balance:
           </ion-col>
@@ -80,7 +80,7 @@
             {{schedule.exercise.balance}} mins
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.plank && schedule.exercise.plank > 0">
           <ion-col text-wrap>
             Plank:
           </ion-col>
@@ -88,10 +88,7 @@
             {{schedule.exercise.plank}} mins
           </ion-col>
         </ion-row>
-      </ion-item>
-
-      <ion-item>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.pushups && schedule.exercise.pushups > 0">
           <ion-col text-wrap>
             Push Ups:
           </ion-col>
@@ -99,7 +96,7 @@
             {{schedule.exercise.pushups}} count
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.one_leg_raise && schedule.exercise.one_leg_raise > 0">
           <ion-col text-wrap>
             One Leg Raise:
           </ion-col>
@@ -107,10 +104,7 @@
             {{schedule.exercise.one_leg_raise}} count
           </ion-col>
         </ion-row>
-      </ion-item>
-
-      <ion-item>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.leg_raise_both && schedule.exercise.leg_raise_both > 0">
           <ion-col text-wrap>
             Leg Raise Both:
           </ion-col>
@@ -118,7 +112,7 @@
             {{schedule.exercise.leg_raise_both}} count
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.squats && schedule.exercise.squats > 0">
           <ion-col text-wrap>
             Squats:
           </ion-col>
@@ -126,10 +120,7 @@
             {{schedule.exercise.squats}} count
           </ion-col>
         </ion-row>
-      </ion-item>
-
-      <ion-item>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.crunches && schedule.exercise.crunches > 0">
           <ion-col text-wrap>
             Crunches:
           </ion-col>
@@ -137,7 +128,7 @@
             {{schedule.exercise.crunches}} count
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngIf="schedule.exercise.superman && schedule.exercise.superman > 0">
           <ion-col text-wrap>
             Superman:
           </ion-col>
