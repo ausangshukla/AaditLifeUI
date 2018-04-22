@@ -16,9 +16,9 @@ export class FoodLogApi {
     console.log('FoodLogApi Provider Created');
   }
 
-  getFoodLogs(week) {
+  getFoodLogs(day) {
     
-    let endpoint = `${this.base_url}.json?week=${week}`;
+    let endpoint = `${this.base_url}.json?day=${day}`;
     return this.tokenService.get(endpoint).map(response=>{
       this.food_logs = response.json();
       return this.food_logs;      

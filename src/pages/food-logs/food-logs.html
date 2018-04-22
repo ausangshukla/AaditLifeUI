@@ -17,7 +17,7 @@
       <ion-item no-lines>
         <ion-row>
           <ion-col text-wrap>
-            {{food_log.intake_date | date: "dd/mm/yy HH:mm"}}
+            {{food_log.intake_date | date: "dd/MM/yy HH:mm"}}
           </ion-col>
         </ion-row>
       </ion-item>
@@ -32,18 +32,18 @@
 
     </button>
 
-    <ion-fab bottom right>
+    <ion-fab top right>
       <button ion-fab (click)="newFoodLog()">+</button>
     </ion-fab>
 
   </ion-list>
 
-  <ion-row>
+  <ion-row bottom>
     <ion-col>
-      <button ion-button full color="secondary" (click)="getFoodLogs(-1)">< Prev Week</button>
+      <button ion-button full color="secondary" (click)="getFoodLogs(-1)">< Prev Day</button>
     </ion-col>
     <ion-col>
-      <button ion-button full color="primary" (click)="getFoodLogs(1)">Next Week ></button>
+      <button ion-button full color="primary" (click)="getFoodLogs(1)">Next Day></button>
     </ion-col>
   </ion-row>
 

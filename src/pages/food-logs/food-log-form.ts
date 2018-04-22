@@ -7,6 +7,7 @@ import { ResponseUtility } from '../../providers/response-utility';
 import { Angular2TokenService } from 'angular2-token';
 import { TermsPage } from '../static/terms';
 import { CheckboxValidator } from '../../providers/checkbox-validator';
+import moment from 'moment';
 
 @Component({
   selector: 'food-log-form',
@@ -32,6 +33,8 @@ export class FoodLogForm {
     private keyboard: Keyboard) {
 
     this.food_log = this.navParams.data;
+    this.food_log["intake_date"] = moment(this.food_log["intake_date"]).format();
+
     console.log(this.food_log);  
 
     this.slideOneForm = formBuilder.group({
@@ -64,6 +67,9 @@ export class FoodLogForm {
     else {
       this.submitAttempt = false;
       loader.present();
+      
+      this.food_log["intake_date"] = moment(this.food_log["intake_date"]).toISOString();
+
       if (this.food_log["id"]) {
         this.food_logApi.updateFoodLog(this.food_log).subscribe(
           food_log => {

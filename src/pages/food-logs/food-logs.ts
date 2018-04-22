@@ -13,7 +13,7 @@ export class FoodLogs {
 
   food_logs: any;
   food_log: any;
-  current_week = 0;
+  current_day = 0;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -27,9 +27,9 @@ export class FoodLogs {
     this.getFoodLogs(0);  
   }
 
-  getFoodLogs(week) {
+  getFoodLogs(day) {
 
-    this.current_week = this.current_week + week;
+    this.current_day = this.current_day + day;
     this.respUtility.trackView("FoodLogs");
     let loader = this.loadingController.create({
       content: 'Loading FoodLogs..'
@@ -37,7 +37,7 @@ export class FoodLogs {
 
     loader.present();
 
-    this.food_logApi.getFoodLogs(this.current_week).subscribe(
+    this.food_logApi.getFoodLogs(this.current_day).subscribe(
       food_logs => {
         this.food_logs = food_logs;
         console.log("Loaded food_logs");
