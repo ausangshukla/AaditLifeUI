@@ -33,15 +33,15 @@ export class MedicalForm {
     private keyboard: Keyboard) {
 
     this.medical = this.navParams.data;
-    if(this.medical == null || this.medical["last_medical_checkup"] == null) {
+    if (this.medical == null || this.medical["last_medical_checkup"] == null) {
       // Grab the medicals for the currently logged in user
 
       let loader = this.loadingController.create({
         content: 'Loading Medicals..'
       });
-  
+
       loader.present();
-      
+
       let currentUser = this.tokenService.currentUserData;
       this.medicalApi.getMedicals().subscribe(
         medicals => {
@@ -52,9 +52,9 @@ export class MedicalForm {
         error => { this.respUtility.showFailure(error); loader.dismiss(); },
         () => { loader.dismiss(); }
       );
-  
+
     }
-    console.log(this.medical);  
+    console.log(this.medical);
 
     this.slideOneForm = formBuilder.group({
       last_medical_checkup: ['', Validators.compose([Validators.minLength(8), Validators.required])],
@@ -129,4 +129,18 @@ export class MedicalForm {
     return this.medicalApi.getMedicalText(name);
   }
 
+  uncheckAllOthers() {
+    if (this.medical["q11"] == true) {
+      this.medical["q1"] = false;
+      this.medical["q2"] = false;
+      this.medical["q3"] = false;
+      this.medical["q4"] = false;
+      this.medical["q5"] = false;
+      this.medical["q6"] = false;
+      this.medical["q7"] = false;
+      this.medical["q8"] = false;
+      this.medical["q9"] = false;
+      this.medical["q10"] = false;
+    }
+  }
 }

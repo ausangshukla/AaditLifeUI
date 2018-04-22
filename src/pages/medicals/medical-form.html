@@ -102,7 +102,7 @@
 
       <ion-item>
         <ion-label text-wrap>None of the things listed above apply to me.</ion-label>
-        <ion-checkbox formControlName="q11" [(ngModel)]="medical.q11"></ion-checkbox>
+        <ion-checkbox formControlName="q11" [(ngModel)]="medical.q11" (click)="uncheckAllOthers()"></ion-checkbox>
       </ion-item>
 
       <ion-list-header text-wrap>Any specific issue / concern that you wish to highlight for consideration as you get started with the program?</ion-list-header>
