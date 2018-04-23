@@ -30,6 +30,7 @@ import { ContactPage } from '../pages/static/contact';
 import { CodePush, SyncStatus, InstallMode } from '@ionic-native/code-push';
 import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StressTests } from '../pages/stress-tests/stress-tests';
+import { TabsPage } from '../pages/home/tabs';
 
 
 @Component({
@@ -38,7 +39,7 @@ import { StressTests } from '../pages/stress-tests/stress-tests';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = TabsPage;
   currentUser: any;
 
   pages: Array<{ title: string, component: any, params: any }> = [];

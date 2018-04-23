@@ -12,6 +12,7 @@ import { Menu } from './menus';
 import { HomeEvents } from '../../providers/home-events';
 import { GoalForm } from '../goals/goal-form';
 import { ScheduleDetails } from '../schedules/schedule-details';
+import { FoodLogs } from '../food-logs/food-logs';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class HomePage implements Menu {
 
   currentUser: any;
   registerCareHome = false;
+  
 
   constructor(public navCtrl: NavController,
     public respUtility: ResponseUtility,

@@ -13,6 +13,7 @@ import { CodePush } from '@ionic-native/code-push';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/home/tabs';
 import { Login } from '../pages/login/login';
 import { PasswordReset } from '../pages/login/password-reset'
 
@@ -85,6 +86,7 @@ import { ScheduleApi } from '../providers/schedule-api';
   declarations: [
     MyApp,
     HomePage,
+    TabsPage,
     Login,
     PasswordReset,
     Users,
@@ -134,6 +136,7 @@ import { ScheduleApi } from '../providers/schedule-api';
   entryComponents: [
     MyApp,
     HomePage,
+    TabsPage,
     Login,
     PasswordReset,
     Users,

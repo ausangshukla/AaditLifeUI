@@ -14,7 +14,7 @@ export class FoodLogs {
   food_logs: any;
   food_log: any;
   current_day = 0;
-  
+  current_date = moment();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController,
@@ -28,8 +28,16 @@ export class FoodLogs {
   }
 
   getFoodLogs(day) {
-
     this.current_day = this.current_day + day;
+    
+    if(this.current_day >= 0) {
+      this.current_date = moment().add(this.current_day, 'days'); 
+    } else {
+      this.current_date = moment().subtract(this.current_day * -1, 'days'); 
+    }
+
+    console.log("current_date = ", this.current_date, this.current_day);
+
     this.respUtility.trackView("FoodLogs");
     let loader = this.loadingController.create({
       content: 'Loading FoodLogs..'
