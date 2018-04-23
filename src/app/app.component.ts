@@ -182,7 +182,7 @@ export class MyApp {
 
             this.pages = [
               { title: 'Goals', component: Goals, params: {} },
-              { title: 'Medicals', component: MedicalForm, params: {} },
+              { title: 'Medicals', component: MedicalForm, params: {load_from_server:true} },
               { title: 'Tests', component: FitnessTests, params: {} },
               { title: 'Workouts', component: Workouts, params: {} },
               { title: 'Schedules', component: Schedules, params: {} },
@@ -199,6 +199,14 @@ export class MyApp {
             // The terms have changed - we need to get him to accept the terms again
             this.respUtility.showWarning("Our terms have changed. Please read and accept the terms & conditions");
             this.edit_profile();
+          } else if (this.currentUser.goals_setup != true) {
+            // The terms have changed - we need to get him to accept the terms again
+            this.respUtility.showWarning("Please setup your goals");
+            this.setup_goals();
+          } else if (this.currentUser.medical_setup != true) {
+            // The terms have changed - we need to get him to accept the terms again
+            this.respUtility.showWarning("Please enter your medical history");
+            this.setup_medicals();
           }
 
 
@@ -246,6 +254,15 @@ export class MyApp {
   edit_profile() {
     this.nav.push(UserForm, this.currentUser);
   }
+
+  setup_goals() {
+    this.nav.push(GoalForm, {});
+  }
+
+  setup_medicals() {
+    this.nav.push(MedicalForm, {});
+  }
+
 
   login() {
     this.nav.push(Login);

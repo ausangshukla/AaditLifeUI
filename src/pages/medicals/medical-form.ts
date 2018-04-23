@@ -33,27 +33,7 @@ export class MedicalForm {
     private keyboard: Keyboard) {
 
     this.medical = this.navParams.data;
-    if (this.medical == null || this.medical["last_medical_checkup"] == null) {
-      // Grab the medicals for the currently logged in user
-
-      let loader = this.loadingController.create({
-        content: 'Loading Medicals..'
-      });
-
-      loader.present();
-
-      let currentUser = this.tokenService.currentUserData;
-      this.medicalApi.getMedicals().subscribe(
-        medicals => {
-          this.medical = medicals[0];
-          console.log("Loaded medicals");
-          console.log(Object.prototype.toString.call(this.medical));
-        },
-        error => { this.respUtility.showFailure(error); loader.dismiss(); },
-        () => { loader.dismiss(); }
-      );
-
-    }
+    console.log(`this.navParams.data`, this.navParams.data);
     console.log(this.medical);
 
     this.slideOneForm = formBuilder.group({
@@ -74,10 +54,42 @@ export class MedicalForm {
 
   }
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad MedicalForm');
     this.respUtility.trackView("MedicalForm");
+
+    if (this.medical == null || this.medical["load_from_server"] == true) {
+      // Grab the medicals for the currently logged in user
+
+      let loader = this.loadingController.create({
+        content: 'Loading Medicals..'
+      });
+
+      loader.present();
+
+      let currentUser = this.tokenService.currentUserData;
+      this.medicalApi.getMedicals().subscribe(
+        medicals => {
+          this.medical = medicals[0];
+          console.log("Loaded medicals");
+          console.log(Object.prototype.toString.call(this.medical));
+        },
+        error => { this.respUtility.showFailure(error); loader.dismiss(); },
+        () => { loader.dismiss(); }
+      );
+
+    } else {
+      // Ensure that the boolean properties are not undefined
+      let booleanParams = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11"];
+      for (var i in booleanParams) {
+        let property = booleanParams[i];
+        if (this.medical[property] === undefined) {
+          this.medical[property] = false;
+        }
+      }
+    }
+
+
   }
 
 
