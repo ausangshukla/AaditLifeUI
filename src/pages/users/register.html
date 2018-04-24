@@ -17,19 +17,19 @@
 
   <ion-list>
 
-            <button ion-item (click)="register('Runner')">
+            <button ion-item (click)="register('Runner', -1)">
               <ion-icon name="create" item-left color="primary"></ion-icon>
-              Care Giver
+              Corporate Sponsored Runner
               <p>
-                Register as a Runner.
+                Register as a Runner .
               </p>
             </button>
 
-            <button ion-item (click)="register('Company Admin')">
+            <button ion-item (click)="register('Runner', null)">
               <ion-icon name="create" item-left color="primary"></ion-icon>
-              Nurse
+              Individual Runner
               <p>
-                Register as a Company.
+                Register as an individual Runner
               </p>
             </button>
 

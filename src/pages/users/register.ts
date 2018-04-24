@@ -17,8 +17,8 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
-  register(role) {
-    let user = {"role": role};
+  register(role, company_id) {
+    let user = {"role": role, "company_id": company_id};
     this.navCtrl.push(UserForm, user);
   }
 
