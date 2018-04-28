@@ -156,6 +156,11 @@ export class MyApp {
     this.platform.ready().then(
       () => {
 
+        this.tokenService.init({
+          apiBase: this.config.props["API_URL"],
+          updatePasswordPath: "/auth/password"
+        });
+
         this.hideSplashScreen();
 
         this.syncCodePush();
@@ -168,10 +173,6 @@ export class MyApp {
         this.splashScreen.hide();
         this.initPushNotification();
 
-        this.tokenService.init({
-          apiBase: this.config.props["API_URL"],
-          updatePasswordPath: "/auth/password"
-        });
 
         this.currentUser = this.tokenService.currentUserData;
 

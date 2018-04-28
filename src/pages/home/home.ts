@@ -52,8 +52,7 @@ export class HomePage implements Menu {
 
   ionViewWillEnter() {
     console.log('ionViewWillEnter HomePage ');
-    this.currentUser = this.tokenService.currentUserData;
-    if(this.scheduleDetails) {
+    if(this.currentUser && this.scheduleDetails) {
       // Ensure that the scheduleDetails available are shown
       this.scheduleDetails.loadTodaysSchedule();
       this.scheduleDetails.hideNavbar();
