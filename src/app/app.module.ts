@@ -64,6 +64,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { MomentModule } from 'angular2-moment';
 import { UserApi } from '../providers/user-api';
+import { CompanyApi } from '../providers/company-api';
 import { WorkoutApi } from '../providers/workout-api';
 import { GoalApi } from '../providers/goal-api';
 import { StressTestApi } from '../providers/stress-test-api';
@@ -179,6 +180,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     Config,
     LoginProvider,
     UserApi,
+    CompanyApi,
     FitnessTestApi,
     WorkoutApi,
     FoodLogApi,

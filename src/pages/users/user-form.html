@@ -21,11 +21,20 @@
 
     <form [formGroup]="slideOneForm">
 
+      <ion-item id="company_id" *ngIf="companies">
+        <ion-label floating>Company</ion-label>
+        <ion-select name="company_id" [(ngModel)]="user.company_id" [class.invalid]="!slideOneForm.controls.company_id.valid && (slideOneForm.controls.company_id.dirty || submitAttempt)"
+          formControlName="company_id">
+          <ion-option  *ngFor="let company of companies" [value]="company.id">{{company.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      
       <ion-item id="gender">
         <ion-label floating>Gender</ion-label>
         <ion-select name="gender" [(ngModel)]="user.gender" [class.invalid]="!slideOneForm.controls.gender.valid && (slideOneForm.controls.gender.dirty || submitAttempt)"
           formControlName="gender">
-          <ion-option value="M" checked="true">Male</ion-option>
+          <ion-option value="M">Male</ion-option>
           <ion-option value="F">Female</ion-option>
         </ion-select>
       </ion-item>

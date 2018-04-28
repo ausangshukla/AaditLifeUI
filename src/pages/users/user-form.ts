@@ -8,6 +8,7 @@ import { Angular2TokenService } from 'angular2-token';
 import { UserValidator } from './user-validator'
 import { TermsPage } from '../static/terms';
 import { CheckboxValidator } from '../../providers/checkbox-validator';
+import { CompanyApi } from '../../providers/company-api';
 
 @Component({
   selector: 'page-user-form',
@@ -25,11 +26,13 @@ export class UserForm {
 
   submitAttempt: boolean = false;
   confirm_password;
+  companies: any;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
     public userApi: UserApi,
+    public companyApi: CompanyApi,
     public respUtility: ResponseUtility,
     public loadingController: LoadingController,
     private tokenService: Angular2TokenService,
@@ -38,7 +41,16 @@ export class UserForm {
     private keyboard: Keyboard) {
 
     this.user = this.navParams.data;
-
+    if(this.user["company_id"] && this.user["company_id"] == -1) {
+      this.companyApi.getCompanies().subscribe(
+        companies => {
+          this.companies = companies;
+          console.log("Loaded companies");
+        },
+        error => { this.respUtility.showFailure(error); },
+        () => { }
+      );
+    }
 
     this.slideOneForm = formBuilder.group({
       first_name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z0-9_\\-.]*'), Validators.required])],
@@ -49,12 +61,12 @@ export class UserForm {
       gender: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(1)])],
       birth_year: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(4), Validators.pattern('^\\d+$')])],
       height: [''],
+      company_id: [''],
       accept_terms: [false, Validators.compose([CheckboxValidator.isChecked, Validators.required])],
       phone: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(11), Validators.pattern('^\\d+$')])],
     }, { "validator": this.isMatching });
 
-    this.onRoleChange(this.user["role"]);
-
+    
     // Password may not be visible, hence disable validations 
     if (this.user["id"]) {
       this.slideOneForm.controls["password"].disable();
@@ -88,21 +100,6 @@ export class UserForm {
       return null;
     }
 
-  }
-  // Switch the madatory fields and validations based on the role
-  onRoleChange(role) {
-    console.log(`Role changed to ${role}`);
-
-
-  }
-
-  onTitleChange(title) {
-    const element = this.elementRef.nativeElement.querySelector('title');
-    // we need to delay our call in order to work with ionic ...
-    setTimeout(() => {
-      this.renderer.invokeElementMethod(element, 'focus', []);
-      this.keyboard.show();
-    }, 0);
   }
 
   ionViewDidLoad() {
@@ -171,3 +168,4 @@ export class UserForm {
   }
 
 }
+
