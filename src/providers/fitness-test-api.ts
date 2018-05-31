@@ -6,12 +6,12 @@ import { Angular2TokenService } from 'angular2-token';
 
 @Injectable()
 export class FitnessTestApi {
-
+ private base_url_target = "targets";
   private base_url = "fitness_tests";
   private remoteEndpoint;
   fitness_tests = [];
   fitness_test = {};
-
+  targets=[];
   constructor(public http: Http, private tokenService: Angular2TokenService) {
     console.log('FitnessTestApi Provider Created');
   }
@@ -28,6 +28,12 @@ export class FitnessTestApi {
     return this.tokenService.get(`${this.base_url}/${fitness_test_id}.json`).map(response=>{
       this.fitness_test = response.json();
       return this.fitness_test;
+    })
+  }
+  getTargetDetails() {
+    return this.tokenService.get(`${this.base_url_target}.json`).map(response=>{
+      this.targets = response.json();
+      return this.targets;
     })
   }
 

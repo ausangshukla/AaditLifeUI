@@ -15,4 +15,8 @@ export class TermsPage {
     console.log('ionViewDidLoad TermsPage');
   }
 
+  saveAggrement(){
+    console.log('saved agreement');
+  }
+
 }
