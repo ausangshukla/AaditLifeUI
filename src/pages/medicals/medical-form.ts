@@ -94,6 +94,7 @@ export class MedicalForm {
 
 
   save() {
+    
     this.respUtility.trackEvent("Medical", "Save", "click");
     this.submitAttempt = true;
     //console.log(this.medical);
@@ -112,7 +113,7 @@ export class MedicalForm {
         this.medicalApi.updateMedical(this.medical).subscribe(
           medical => {
             this.respUtility.showSuccess('Medical saved successfully.');
-            this.navCtrl.pop();
+            this.navCtrl.push(TermsPage);
           },
           error => {
             this.respUtility.showFailure(error);
@@ -124,7 +125,7 @@ export class MedicalForm {
         this.medicalApi.createMedical(this.medical).subscribe(
           medical => {
             this.respUtility.showSuccess('Medical saved successfully.');
-            this.navCtrl.pop();
+            this.navCtrl.push(TermsPage);
           },
           error => {
             this.respUtility.showFailure(error);
@@ -134,6 +135,7 @@ export class MedicalForm {
         );
       }
     }
+   
   }
 
 

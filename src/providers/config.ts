@@ -18,7 +18,12 @@ export class Config {
   };
 
   private staging = {
+<<<<<<< HEAD
+    //API_URL: "http://18.188.32.153:3000",
+    API_URL: "http://localhost:3000",
+=======
     API_URL: "http://13.127.219.196:3000",
+>>>>>>> 00baf1397da48fc3f2c541043a169f686e9b4582
     ENV: "prod",
     GA_ID: 'UA-103042137-1'
   };
@@ -29,7 +34,7 @@ export class Config {
     GA_ID: 'UA-103042137-1'
   };
   
-  public props = this.dev;
+  public props = this.staging;
 
   constructor() {
     

@@ -30,7 +30,6 @@ import { PhoneVerificationPage } from '../pages/users/phone-verification';
 import { RegisterPage } from '../pages/users/register';
 
 import { FitnessTests } from '../pages/fitness-tests/fitness-tests';
-import { FitnessTestDetails } from '../pages/fitness-tests/fitness-test-details';
 import { Workouts } from '../pages/workouts/workouts';
 import { WorkoutDetails } from '../pages/workouts/workout-details';
 import { Goals } from '../pages/goals/goals';
@@ -95,7 +94,6 @@ import { ScheduleApi } from '../providers/schedule-api';
     UserForm,
     UserDetails,
     FitnessTests,
-    FitnessTestDetails,
     Workouts,
     WorkoutDetails,
     Goals,
@@ -147,7 +145,6 @@ import { ScheduleApi } from '../providers/schedule-api';
     PhoneVerificationPage,
     RegisterPage,
     FitnessTests,
-    FitnessTestDetails,
     Workouts,
     WorkoutDetails,
     FoodLogs,

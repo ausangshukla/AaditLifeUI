@@ -60,6 +60,10 @@ export class UserForm {
       confirm_password: ['', Validators.compose([Validators.required])],
       gender: ['', Validators.compose([Validators.minLength(1), Validators.maxLength(1)])],
       birth_year: ['', Validators.compose([Validators.minLength(4), Validators.maxLength(4), Validators.pattern('^\\d+$')])],
+<<<<<<< HEAD
+      height: [''],
+=======
+>>>>>>> 00baf1397da48fc3f2c541043a169f686e9b4582
       company_id: [''],
       accept_terms: [false, Validators.compose([CheckboxValidator.isChecked, Validators.required])],
       phone: ['', Validators.compose([Validators.minLength(10), Validators.maxLength(11), Validators.pattern('^\\d+$')])],
