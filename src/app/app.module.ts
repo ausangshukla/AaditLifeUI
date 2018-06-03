@@ -60,7 +60,7 @@ import { ContactPage } from '../pages/static/contact';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpClientModule } from '@angular/common/http';
+
 import { MomentModule } from 'angular2-moment';
 import { UserApi } from '../providers/user-api';
 import { CompanyApi } from '../providers/company-api';
@@ -124,7 +124,6 @@ import { ScheduleApi } from '../providers/schedule-api';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     HttpModule,
     RouterModule,
     MomentModule,
