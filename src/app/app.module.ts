@@ -60,7 +60,7 @@ import { ContactPage } from '../pages/static/contact';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HttpModule } from '@angular/http';
+
 import { MomentModule } from 'angular2-moment';
 import { UserApi } from '../providers/user-api';
 import { CompanyApi } from '../providers/company-api';
@@ -71,7 +71,7 @@ import { MedicalApi } from '../providers/medical-api';
 import { FoodLogApi } from '../providers/food-log-api';
 import { FitnessTestApi } from '../providers/fitness-test-api';
 import { Config } from '../providers/config';
-
+import { HttpModule } from '@angular/http';
 import { ResponseUtility } from '../providers/response-utility';
 import { Push } from '@ionic-native/push';
 import { TitleCasePipe } from '../pipes/title-case/title-case';
