@@ -26,7 +26,7 @@ export class LoginProvider {
     public respUtility: ResponseUtility) {
     console.log('Hello LoginProvider Provider');
   }
-
+  
   logout() {
     console.log("logout called")
     this.tokenService.signOut().subscribe(

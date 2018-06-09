@@ -2,7 +2,7 @@ import { IonicErrorHandler } from 'ionic-angular';
 import Raven from 'raven-js';
 
 Raven
-    .config('https://9500eedd0c51488ab9b3902bf8393c2b@sentry.io/189448', {
+    .config('https://e681fb6177c2409b85c6673e8f1d2f98@sentry.io/1197974', {
         release: '1.0.0',
         dataCallback: data => {
 

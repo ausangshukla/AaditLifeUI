@@ -68,6 +68,79 @@
     
     </button>
 
+    <button ion-item *ngFor="let strength_workout of strength_workouts" (click)=getStrengthWorkoutDetails(workout)>
+
+      <ion-item-divider text-center color="secondary">Strength</ion-item-divider>
+      <ion-item>
+        <ion-row *ngIf="strength_workout.balance && strength_workout.balance > 0">
+          <ion-col text-wrap>
+            Balance:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.balance}} seconds
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.plank && strength_workout.plank > 0">
+          <ion-col text-wrap>
+            Plank:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.plank}} seconds
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.pushups && strength_workout.pushups > 0">
+          <ion-col text-wrap>
+            Push Ups:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.pushups}} count
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.one_leg_raise && strength_workout.one_leg_raise > 0">
+          <ion-col text-wrap>
+            One Leg Raise:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.one_leg_raise}} count
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.leg_raise_both && strength_workout.leg_raise_both > 0">
+          <ion-col text-wrap>
+            Leg Raise Both:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.leg_raise_both}} count
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.squats && strength_workout.squats > 0">
+          <ion-col text-wrap>
+            Squats:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.squats}} count
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.crunches && strength_workout.crunches > 0">
+          <ion-col text-wrap>
+            Crunches:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.crunches}} count
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="strength_workout.superman && strength_workout.superman > 0">
+          <ion-col text-wrap>
+            Superman:
+          </ion-col>
+          <ion-col text-wrap>
+            {{strength_workout.superman}} seconds
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </button>
+  
   </ion-list>
 
+  
 </ion-content>
