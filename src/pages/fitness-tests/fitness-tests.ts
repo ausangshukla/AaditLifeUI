@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ResponseUtility } from '../../providers/response-utility';
 import { FitnessTestApi } from '../../providers/fitness-test-api';
-import * as HighCharts from 'HighCharts';
+import * as HighCharts from 'highcharts';
 import * as $ from "jquery";
 import * as s from './fitness-tests-details.scss';
 import { DatePipe } from '@angular/common';
