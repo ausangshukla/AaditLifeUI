@@ -26,7 +26,7 @@ export class Config {
 
   private prod = {
     //API_URL = "http://13.127.127.104:3000",
-    API_URL: "https://production.aadit_life.co.uk",
+    API_URL: "https://production.aaditlife.com",
     ENV: "prod",
     GA_ID: 'UA-103042137-1'
   };
