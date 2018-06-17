@@ -25,12 +25,13 @@ export class Config {
   };
 
   private prod = {
+    //API_URL = "http://13.127.127.104:3000",
     API_URL: "https://production.aadit_life.co.uk",
     ENV: "prod",
     GA_ID: 'UA-103042137-1'
   };
   
-  public props = this.dev;
+  public props = this.prod;
 
   constructor() {
     

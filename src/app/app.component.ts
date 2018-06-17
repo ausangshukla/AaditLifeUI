@@ -182,20 +182,34 @@ export class MyApp {
 
           this.ga.setUserId(this.currentUser["id"]); // Set the user ID using signed-in user_id.
 
-            this.pages = [
-              { title: 'Goals', component: Goals, params: {} },
-              { title: 'Medicals', component: MedicalForm, params: {load_from_server:true} },
-              { title: 'Tests', component: FitnessTests, params: {} },
-              { title: 'Workouts', component: Workouts, params: {} },
-              { title: 'Schedules', component: Schedules, params: {} },
-              { title: 'Stress Tests', component: StressTests, params: {} },
-              { title: 'Food Logs', component: FoodLogs, params: {} },
-              { title: 'About Us', component: AboutPage, params: {} },
-              { title: 'Terms & Conditions', component: TermsPage, params: {} },
-              { title: 'Contact Us', component: ContactPage, params: {} },
-              { title: 'Help', component: HelpPage, params: {} },
-            ];
-
+            if(this.currentUser.initial_test_completed == true) {
+              this.pages = [
+                { title: 'Goals', component: Goals, params: {} },
+                { title: 'Medicals', component: MedicalForm, params: {load_from_server:true} },
+                { title: 'Tests', component: FitnessTests, params: {} },
+                { title: 'Workouts', component: Workouts, params: {} },
+                { title: 'Schedules', component: Schedules, params: {} },
+                { title: 'Stress Tests', component: StressTests, params: {} },
+                { title: 'Food Logs', component: FoodLogs, params: {} },
+                { title: 'About Us', component: AboutPage, params: {} },
+                { title: 'Terms & Conditions', component: TermsPage, params: {} },
+                { title: 'Contact Us', component: ContactPage, params: {} },
+                { title: 'Help', component: HelpPage, params: {} },
+              ];
+  
+            } else {
+              this.pages = [
+                { title: 'Goals', component: Goals, params: {} },
+                { title: 'Medicals', component: MedicalForm, params: {load_from_server:true} },
+                { title: 'Tests', component: FitnessTests, params: {} },
+                { title: 'About Us', component: AboutPage, params: {} },
+                { title: 'Terms & Conditions', component: TermsPage, params: {} },
+                { title: 'Contact Us', component: ContactPage, params: {} },
+                { title: 'Help', component: HelpPage, params: {} },
+              ];
+  
+            }
+            
 
           if (this.currentUser.accept_terms != true) {
             // The terms have changed - we need to get him to accept the terms again
