@@ -6,19 +6,13 @@ import { ContactPage } from './contact';
 
 @NgModule({
   declarations: [
-    AboutPage,
-    ContactPage,
-    TermsPage
+   
   ],
   imports: [
-    AboutPage,
-    ContactPage,
-    TermsPage
+    
   ],
   exports: [
-    AboutPage,
-    ContactPage,
-    TermsPage
+    
   ]
 })
 
