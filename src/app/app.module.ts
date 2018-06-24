@@ -56,7 +56,7 @@ import { AboutPage } from '../pages/static/about';
 import { HelpPage } from '../pages/static/help';
 import { TermsPage } from '../pages/static/terms';
 import { ContactPage } from '../pages/static/contact';
-
+import { FitnessTestDetails } from '../pages/fitness-tests/fitness-test-details';
 import { Diagnostic } from '@ionic-native/diagnostic';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -65,6 +65,7 @@ import { MomentModule } from 'angular2-moment';
 import { UserApi } from '../providers/user-api';
 import { CompanyApi } from '../providers/company-api';
 import { WorkoutApi } from '../providers/workout-api';
+import { StrengthWorkoutApi } from '../providers/strength-workout-api';
 import { GoalApi } from '../providers/goal-api';
 import { StressTestApi } from '../providers/stress-test-api';
 import { MedicalApi } from '../providers/medical-api';
@@ -120,7 +121,8 @@ import { ScheduleApi } from '../providers/schedule-api';
     AboutPage,
     HelpPage,
     ContactPage,
-    TermsPage
+    TermsPage,
+    FitnessTestDetails
   ],
   imports: [
     BrowserModule,
@@ -180,6 +182,7 @@ import { ScheduleApi } from '../providers/schedule-api';
     CompanyApi,
     FitnessTestApi,
     WorkoutApi,
+    StrengthWorkoutApi,
     FoodLogApi,
     GoalApi,
     StressTestApi,
