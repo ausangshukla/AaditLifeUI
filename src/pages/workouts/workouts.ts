@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, Content } from 
 import { ResponseUtility } from '../../providers/response-utility';
 import { WorkoutDetails } from './workout-details';
 import { WorkoutApi } from '../../providers/workout-api';
+import { StrengthWorkoutApi } from '../../providers/strength-workout-api';
 
 @Component({
   selector: 'workouts',
@@ -13,6 +14,9 @@ export class Workouts {
   @ViewChild(Content) content: Content;
   public showNavbar: boolean = true;
   
+  strength_workouts: any;
+  strength_workout: any;
+
   workouts: any;
   workout: any;
   fitness_test_id: any = null;
@@ -20,6 +24,7 @@ export class Workouts {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingController: LoadingController,
     public workout_api: WorkoutApi, 
+    public strength_workout_api: StrengthWorkoutApi, 
     public respUtility: ResponseUtility) {
       if(this.navParams.data["fitness_test_id"] !== null) {
         this.fitness_test_id = this.navParams.data["fitness_test_id"];
@@ -44,11 +49,25 @@ export class Workouts {
       () => { loader.dismiss(); }
     );
 
+    this.strength_workout_api.getStrengthWorkouts(this.fitness_test_id).subscribe(
+      strength_workouts => {
+        this.strength_workouts = strength_workouts;
+        console.log("Loaded strength_workouts");
+      },
+      error => { this.respUtility.showFailure(error); },
+      () => { }
+    );
+
   }
 
   getWorkoutDetails(workout) {
     this.respUtility.trackEvent("Workout", "Details", "click");
     this.navCtrl.push(WorkoutDetails, workout);
+  }
+
+  getStrengthWorkoutDetails(strength_workout) {
+    this.respUtility.trackEvent("StrengthWorkout", "Details", "click");
+    this.navCtrl.push(WorkoutDetails, strength_workout);
   }
 
   public hideNavbar(): void {

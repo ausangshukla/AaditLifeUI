@@ -8,6 +8,7 @@
 *.apk
 *.tmp.*
 log.txt
+AaditLife.keystore
 *.sublime-project
 *.sublime-workspace
 .vscode/
