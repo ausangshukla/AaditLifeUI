@@ -12,23 +12,25 @@ import { PasswordReset } from './password-reset';
 import { Storage } from '@ionic/storage';
 import { RegisterPage } from '../users/register';
 
+import { OAuthService } from '../oauth/oauth.service';
+import { OAuthProfilePage } from '../profile/oauth-profile.page';
+import { HomePage } from '../home/home';
+//import { Login } from '../../login/login';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  providers: [OAuthService]
 })
 export class Login {
 
-  // email: any = "thimmaiah@gmail.com";
-  //password: any = "thimmaiah@gmail.com";
 
-  //email: any = "admin@ubernurse.com";
-  //password: any = "admin@ubernurse.com";
-
+  private oauthService: OAuthService;
+  private nav: NavController;
   email: any;
   password: any;
 
-
+  currentUser: any;
   slideOneForm: FormGroup;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -39,24 +41,42 @@ export class Login {
     private config: Config,
     private loginProvider: LoginProvider,
     private userApi: UserApi,
-    private storage: Storage) {
+    private storage: Storage, oauthService: OAuthService, nav: NavController) {
 
-
+    this.oauthService = oauthService;
+    this.nav = nav;
     this.slideOneForm = formBuilder.group({
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])]
     });
   }
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad Login');
     this.respUtility.trackView("Login");
   }
 
+  // ionViewWillEnter() {
+  //   console.log('ionViewWillEnter HomePage ');
+  //   if (this.currentUser) {
+  //     this.nav.push(HomePage);
+  //   };
+
+  // }
+
   login() {
     this.respUtility.trackEvent("User", "Login", "click");
     this.loginProvider.login(this.email, this.password, this.navCtrl);
   }
+  public signin(source: string) {
+    this.oauthService.login(source)
+      .then(
+        () => this.nav.setRoot(OAuthProfilePage),
+        error => alert(error)
+      );
+  }
+
 
   register() {
     this.respUtility.trackEvent("User", "Register", "click");

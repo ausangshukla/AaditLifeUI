@@ -5,6 +5,7 @@ import { HomePage } from './home';
 import { FoodLogs } from '../food-logs/food-logs';
 import { Schedules } from '../schedules/schedules';
 import { ResponseUtility } from '../../providers/response-utility';
+import { Login } from './../login/login';
 
 @Component({
     templateUrl: 'tabs.html'
@@ -15,7 +16,7 @@ export class TabsPage {
     homeRoot = HomePage;
     foodLogRoot = FoodLogs;
     scheduleRoot = Schedules;
-
+    loginRoot = Login;
     currentUser: any;
 
     constructor(public respUtility: ResponseUtility,

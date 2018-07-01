@@ -32,6 +32,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics';
 import { StressTests } from '../pages/stress-tests/stress-tests';
 import { TabsPage } from '../pages/home/tabs';
 
+import { OAuthProvidersListPage } from '../pages/oauth/list/oauth-providers.list.page';
 
 @Component({
   templateUrl: 'app.html',
@@ -281,7 +282,7 @@ export class MyApp {
 
 
   login() {
-    this.nav.push(Login);
+    this.nav.push(OAuthProvidersListPage);
   }
 
 
