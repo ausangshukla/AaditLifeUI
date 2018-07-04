@@ -25,6 +25,10 @@ import { HomePage } from '../home/home';
 export class Login {
 
 
+
+
+
+
   private oauthService: OAuthService;
   private nav: NavController;
   email: any;

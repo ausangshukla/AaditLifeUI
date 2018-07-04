@@ -13,7 +13,10 @@ import { HomeEvents } from '../../providers/home-events';
 import { GoalForm } from '../goals/goal-form';
 import { ScheduleDetails } from '../schedules/schedule-details';
 import { FoodLogs } from '../food-logs/food-logs';
-
+import { Platform } from 'ionic-angular';
+import { OAuthProvidersListPage } from '../oauth/list/oauth-providers.list.page';
+// import { Oauth } from "ng2-cordova-oauth/oauth"
+// import { Google } from "ng2-cordova-oauth/provider/google";
 
 @Component({
   selector: 'page-home',
@@ -33,7 +36,8 @@ export class HomePage implements Menu {
     public config: Config,
     public events: Events,
     public homeEvents: HomeEvents,
-    private loginProvider: LoginProvider) {
+    private loginProvider: LoginProvider, private platform: Platform) {
+
 
     this.homeEvents.registerMenu(this);
     this.events.subscribe('user:login:success', () => {
@@ -62,7 +66,8 @@ export class HomePage implements Menu {
 
 
   login() {
-    this.navCtrl.push(Login);
+   // this.navCtrl.push(OAuthProvidersListPage);
+   this.navCtrl.push(Login);
   }
 
 
